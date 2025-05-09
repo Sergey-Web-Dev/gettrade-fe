@@ -1,0 +1,17 @@
+.category-item {
+  display: block;
+  width: 250px;
+  height: 232px;
+  padding: 24px;
+  background-color: var(--shadow-bg);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__name {
+    font-size: 18px;
+    font-weight: 500;
+    max-width: 202px;
+  }
+}

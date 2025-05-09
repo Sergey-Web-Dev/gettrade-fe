@@ -1,0 +1,19 @@
+.header {
+  display: flex;
+  max-width: 1600px;
+  margin: 0 auto;
+  align-items: center;
+  padding: 18px 0;
+  gap: 32px;
+
+  &__nav{
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-grow: 1;
+    
+    &__buttons {
+      display: flex;
+    }
+  }
+}

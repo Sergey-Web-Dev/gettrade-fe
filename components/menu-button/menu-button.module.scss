@@ -1,0 +1,16 @@
+.menu-button {
+  background-color: #1378F5;
+  font-weight: 600;
+  font-family: "Inter", "Inter Fallback";
+  font-size: 18px;
+  padding: 21.5px 24px 21.5px 23px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: #fff;
+}
+
+.menu-button:hover {
+  background-color: rgba(19, 120, 245, .8);
+}
