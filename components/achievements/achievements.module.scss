@@ -1,0 +1,13 @@
+.achievements {
+  padding: 48px 0 64px 0;
+  
+  &__header {
+    margin-bottom: 32px;
+  }
+
+  &__items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+}

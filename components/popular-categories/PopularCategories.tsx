@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { PopularCategory } from "./types";
+import { PopularCategory } from "../types/categories";
 import CategoryItem from "../category-item/CategoryItem";
 import styles from './popular-categories.module.scss';
 

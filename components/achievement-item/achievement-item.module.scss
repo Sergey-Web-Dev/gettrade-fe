@@ -1,0 +1,21 @@
+.achievement-item {
+  background-color: var(--shadow-bg);
+  width: 250px;
+  height: 186px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__value {
+    color: var(--brand-blue);
+    font-weight: 500;
+    font-size: 40px;
+    margin-bottom: 4px;
+  }
+
+  &__text {
+    font-size: 17px;
+    font-weight: 400;
+  }
+}

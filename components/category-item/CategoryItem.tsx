@@ -3,13 +3,13 @@ import { FC } from "react";
 import styles from './category-item.module.scss';
 import Link from "next/link";
 
-interface ICategotyItemProps {
+interface ICategoryItemProps {
   name: string;
   imgSrc: string;
   link: string;
 }
 
-const CategoryItem: FC<ICategotyItemProps> = ({ name, imgSrc, link }) => { //картинка быдет bgImage или обычная, растянутая на фон? или как сейчас - на фоне смещенная в угол?
+const CategoryItem: FC<ICategoryItemProps> = ({ name, imgSrc, link }) => { //картинка быдет bgImage или обычная, растянутая на фон? или как сейчас - на фоне смещенная в угол?
   return (
     <Link href={link} className={styles['category-item']}>
       <h3 className={styles['category-item__name']}>{name}</h3>
