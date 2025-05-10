@@ -1,6 +1,8 @@
 import Achievements from "@/components/achievements/Achievements";
+import Bestsellers from "@/components/bestsellers/Bestsellers";
 import ImagesSlider from "@/components/images-slider/ImagesSlider";
 import PopularCategories from "@/components/popular-categories/PopularCategories";
+import { Product } from "@/components/types/products";
 
 // const sliderImages = [
 //   { src: '', text: 'Гарнитура Cooler Master CH331 USB' },
@@ -96,11 +98,87 @@ const achievements = [
   },
 ]
 
+const bestsellers: Product[] = [
+  {
+    title: 'Гарнитура Cooler Master CH331 USB',
+    imgSrc: '/ch331.png',
+    originalPrice: 1999,
+    discountedPrice: 1599,
+    discount: 15,
+    isBestseller: true,
+    reviews: {
+      rating: 4.7,
+      amount: 12,
+    }
+  },
+  {
+    title: 'Гарнитура Cooler Master CH331 USB',
+    imgSrc: '/ch331.png',
+    originalPrice: 1999,
+    discountedPrice: 1599,
+    discount: 15,
+    isBestseller: true,
+    reviews: {
+      rating: 4.7,
+      amount: 12,
+    }
+  },
+  {
+    title: 'Гарнитура Cooler Master CH331 USB',
+    imgSrc: '/ch331.png',
+    originalPrice: 1999,
+    discountedPrice: 1599,
+    discount: 15,
+    isBestseller: true,
+    reviews: {
+      rating: 4.7,
+      amount: 12,
+    }
+  },
+  {
+    title: 'Гарнитура Cooler Master CH331 USB',
+    imgSrc: '/ch331.png',
+    originalPrice: 1999,
+    discountedPrice: 1599,
+    discount: 15,
+    isBestseller: true,
+    reviews: {
+      rating: 4.7,
+      amount: 12,
+    }
+  },
+  {
+    title: 'Гарнитура Cooler Master CH331 USB',
+    imgSrc: '/ch331.png',
+    originalPrice: 1999,
+    discountedPrice: 1599,
+    discount: 15,
+    isBestseller: true,
+    reviews: {
+      rating: 4.7,
+      amount: 12,
+    }
+  },
+  {
+    title: 'Гарнитура Cooler Master CH331 USB',
+    imgSrc: '/ch331.png',
+    originalPrice: 1999,
+    discountedPrice: 1599,
+    discount: 15,
+    isBestseller: true,
+    reviews: {
+      rating: 4.7,
+      amount: 12,
+    }
+  },
+]
+
 export default function Home() {
   return (
     // <ImagesSlider />
     <>
       <PopularCategories categories={categories} />
+      <Bestsellers bestsellers={bestsellers} />
       <Achievements achievements={achievements} />
     </>
   );

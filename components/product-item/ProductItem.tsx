@@ -1,0 +1,42 @@
+'use client';
+import { FC } from "react";
+import { Product } from "../types/products";
+import Link from "next/link";
+import Image from "next/image";
+import ActionButton from "../action-button/ActionButton";
+import styles from './product-item.module.scss';
+
+interface IProductItemProps {
+  product: Product,
+}
+
+const ProductItem: FC<IProductItemProps> = ({ product }) => {
+  const { title, imgSrc, originalPrice, discountedPrice, discount, isBestseller, reviews: { rating, amount } } = product
+  return (
+    <div className={styles['product-item']}>
+      <div className={styles['product-item__image']}>
+        <Image src={imgSrc} width={202} height={190} alt={`Фото ${title}`} />
+        <button className={styles['product-item__image__favs']}><Image src='/favourites.svg' width={20} height={18} alt={`Добавить в избранное`} /></button>
+        <div className={styles['product-item__image__labels']}>
+          {discount && <span>-{discount}%</span>}
+          {isBestseller && <span>ХИТ ПРОДАЖ</span>}
+        </div>
+      </div>
+      <div className={styles['product-item__info']}>
+        <p className={styles['product-item__info__prices']}>
+          <span className={styles['product-item__info__prices__discounted']} style={{ color: discountedPrice ? 'rgba(186, 37, 40, 1)' : '' }}>{discountedPrice ? discountedPrice : originalPrice} ₽</span>
+          {discountedPrice && <span className={styles['product-item__info__prices__original']} >{originalPrice} ₽</span>}
+        </p>
+        <h4 className={styles['product-item__info__title']}>{title}</h4>
+        <div className={styles['product-item__info__reviews']}>
+          <Image src='/rating-star.svg' width={17} height={17} alt={`Добавить в избранное`} />
+          <span className={styles['product-item__info__reviews__rating']}>{rating}</span>
+          <span className={styles['product-item__info__reviews__amount']}>{amount} оценок</span>
+        </div>
+      </div>
+      <ActionButton text='КУПИТЬ' onClick={() => console.log('купить')} />
+    </div>
+  )
+}
+
+export default ProductItem;
