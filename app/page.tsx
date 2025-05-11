@@ -1,10 +1,11 @@
 import Achievements from "@/components/achievements/Achievements";
 import Bestsellers from "@/components/bestsellers/Bestsellers";
 import Blog from "@/components/blog/Blog";
+import DualSliders from "@/components/dual-sliders/DualSliders";
 import ImagesSlider from "@/components/images-slider/ImagesSlider";
+import MainSlider from "@/components/main-slider/MainSlider";
 import PopularCategories from "@/components/popular-categories/PopularCategories";
 import { Product } from "@/components/types/products";
-import { title } from "process";
 
 const categories = [
   {
@@ -199,11 +200,67 @@ const blogItems = [
   },
 ]
 
+const bigImages = [
+  {
+    imgSrc: '/slider-big-mock.png',
+    link: ''
+  },
+  {
+    imgSrc: '/slider-big-mock.png',
+    link: ''
+  },
+  {
+    imgSrc: '/slider-big-mock.png',
+    link: ''
+  },
+  {
+    imgSrc: '/slider-big-mock.png',
+    link: ''
+  },
+  {
+    imgSrc: '/slider-big-mock.png',
+    link: ''
+  },
+  {
+    imgSrc: '/slider-big-mock.png',
+    link: ''
+  },
+]
+
+const smallImages = [
+  {
+    imgSrc: '/slider-small-mock.png',
+    link: ''
+  },
+  {
+    imgSrc: '/slider-small-mock.png',
+    link: ''
+  },
+  {
+    imgSrc: '/slider-small-mock.png',
+    link: ''
+  },
+  {
+    imgSrc: '/slider-small-mock.png',
+    link: ''
+  },
+  {
+    imgSrc: '/slider-small-mock.png',
+    link: ''
+  },
+  {
+    imgSrc: '/slider-small-mock.png',
+    link: ''
+  },
+]
+
 export default function Home() {
   return (
     // <ImagesSlider />
     <>
+      <MainSlider images={bigImages} />
       <PopularCategories categories={categories} />
+      <DualSliders slider1Images={smallImages} slider2Images={smallImages} />
       <Bestsellers bestsellers={bestsellers} />
       <Blog blogItems={blogItems} />
       <Achievements achievements={achievements} />
