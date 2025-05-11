@@ -1,0 +1,20 @@
+.blog-item {
+  width: 304px;
+  img {
+    border-radius: 12px;
+    margin-bottom: 10px;
+  }
+
+  &__description {
+    &__main {
+      font-size: 18px;
+      font-weight: 400;
+      display: flex;
+      margin-bottom: 10px;
+    }
+    &__date {
+      font-size: 16px;
+      font-weight: 400;
+    }
+  }
+}

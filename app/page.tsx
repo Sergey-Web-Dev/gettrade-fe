@@ -1,12 +1,10 @@
 import Achievements from "@/components/achievements/Achievements";
 import Bestsellers from "@/components/bestsellers/Bestsellers";
+import Blog from "@/components/blog/Blog";
 import ImagesSlider from "@/components/images-slider/ImagesSlider";
 import PopularCategories from "@/components/popular-categories/PopularCategories";
 import { Product } from "@/components/types/products";
-
-// const sliderImages = [
-//   { src: '', text: 'Гарнитура Cooler Master CH331 USB' },
-// ]
+import { title } from "process";
 
 const categories = [
   {
@@ -173,12 +171,41 @@ const bestsellers: Product[] = [
   },
 ]
 
+const blogItems = [
+  {
+    imgSrc: '/blog-item.png',
+    title: 'Профессиональное звуковое оборудование для мероприятий - сцены концертного зала',
+    date: '12 янв 2025 12:33'
+  },
+  {
+    imgSrc: '/blog-item.png',
+    title: 'Профессиональное звуковое оборудование для мероприятий - сцены концертного зала',
+    date: '12 янв 2025 12:33'
+  },
+  {
+    imgSrc: '/blog-item.png',
+    title: 'Профессиональное звуковое оборудование для мероприятий - сцены концертного зала',
+    date: '12 янв 2025 12:33'
+  },
+  {
+    imgSrc: '/blog-item.png',
+    title: 'Профессиональное звуковое оборудование для мероприятий - сцены концертного зала',
+    date: '12 янв 2025 12:33'
+  },
+  {
+    imgSrc: '/blog-item.png',
+    title: 'Профессиональное звуковое оборудование для мероприятий - сцены концертного зала',
+    date: '12 янв 2025 12:33'
+  },
+]
+
 export default function Home() {
   return (
     // <ImagesSlider />
     <>
       <PopularCategories categories={categories} />
       <Bestsellers bestsellers={bestsellers} />
+      <Blog blogItems={blogItems} />
       <Achievements achievements={achievements} />
     </>
   );
