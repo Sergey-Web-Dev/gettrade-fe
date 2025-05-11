@@ -2,7 +2,6 @@ import Achievements from "@/components/achievements/Achievements";
 import Bestsellers from "@/components/bestsellers/Bestsellers";
 import Blog from "@/components/blog/Blog";
 import DualSliders from "@/components/dual-sliders/DualSliders";
-import ImagesSlider from "@/components/images-slider/ImagesSlider";
 import MainSlider from "@/components/main-slider/MainSlider";
 import PopularCategories from "@/components/popular-categories/PopularCategories";
 import { Product } from "@/components/types/products";
@@ -216,6 +215,14 @@ const blogItems = [
 ]
 
 const bigImages = [
+  {
+    imgSrc: '/slider-big-mock.png',
+    link: ''
+  },
+  {
+    imgSrc: '/slider-big-mock.png',
+    link: ''
+  },
   {
     imgSrc: '/slider-big-mock.png',
     link: ''
