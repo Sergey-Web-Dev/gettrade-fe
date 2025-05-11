@@ -2,6 +2,7 @@ import { FC } from 'react';
 import styles from './blog.module.scss';
 import { BlogItemType } from '../types/blog';
 import BlogItem from '../blog-item/BlogItem';
+import Slider from "@/components/slider-for-items/Slider";
 
 interface IBlogProps {
   blogItems: BlogItemType[]
@@ -12,7 +13,7 @@ const Blog: FC<IBlogProps> = ({ blogItems }) => {
     <main className={`container ${styles.blog}`}>
       <h2 className={`h2-header ${styles.blog__header}`}>Хиты продаж</h2>
       <div className={`h2-header ${styles.blog__items}`}>
-        {blogItems.map(({ imgSrc, title, date }, index) => <BlogItem key={index} imgSrc={imgSrc} title={title} date={date} />)}
+          <Slider items={blogItems.map(({ imgSrc, title, date }, index) => <BlogItem key={index} imgSrc={imgSrc} title={title} date={date} />)}/>
       </div>
     </main>
   )
