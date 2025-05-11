@@ -6,6 +6,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import {FC, ReactNode, Ref, useRef, useState} from "react";
 import styles from './items-slider.module.scss';
+import cn from 'classnames';
 
 interface IItemsSliderProps {
     items: ReactNode[],
@@ -24,11 +25,17 @@ const ItemsSlider: FC<IItemsSliderProps> = ({
                                                 nextRef,
                                                 slidesPerView = 1 }) => {
     const swiperRef = useRef(null);
-
+    const pageCount = Math.ceil(items.length / slidesPerView);
     const paginationRef = useRef(null);
     const [activeIndex, setActiveIndex] = useState(0);
-    //@ts-ignore
-    const goToSlide = (index: number) => swiperRef.current?.slideTo(index)
+
+
+
+
+    const goToSlide = (index: number) => {
+        //@ts-ignore
+        swiperRef.current?.slideTo(index * slidesPerView);
+    };
 
     return (
         <Swiper
@@ -37,9 +44,16 @@ const ItemsSlider: FC<IItemsSliderProps> = ({
             loop
             autoplay
             navigation={{ nextEl: '.nextEl', prevEl: '.prevEl' }}
-            pagination={{ el: '.progressbar' }}
+            pagination={{ el: '.progressbar', dynamicBullets: true }}
             slidesPerView={slidesPerView}
-            onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+            spaceBetween={10}
+            onSlideChange={(swiper) => {
+                const currentPage = Math.floor(swiper.realIndex / slidesPerView);
+                console.log('swioper active index', swiper.activeIndex)
+                console.log('cp', currentPage)
+
+                setActiveIndex(currentPage);
+            }}
             onInit={(swiper) => {
                 //@ts-ignore
                 swiperRef.current = swiper;
@@ -55,10 +69,14 @@ const ItemsSlider: FC<IItemsSliderProps> = ({
         >
             {items.map((item, index) => <SwiperSlide key={index}>{item}</SwiperSlide>)}
             <div className={styles.pagination} ref={paginationRef}>
-                {items.map((_, index) => (
-                    //@ts-ignore
-                    <button style={{ backgroundColor: index === activeIndex ? 'rgba(0, 0, 0, 1)' : 'rgba(0, 0, 0, .4)' }} key={index} onClick={() => goToSlide(index)} className={styles.pagination__item}>
-                    </button>
+                {Array.from({ length: pageCount }).map((_, index) => (
+                    <button
+                        key={index}
+                        onClick={() => goToSlide(index)}
+                        className={cn(styles.pagination__item, {
+                            [styles['pagination__item--active']]: index === activeIndex,
+                        })}
+                    />
                 ))}
             </div>
         </Swiper>

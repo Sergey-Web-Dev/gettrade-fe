@@ -169,6 +169,18 @@ const bestsellers: Product[] = [
       amount: 12,
     }
   },
+  {
+    title: 'Гарнитура Cooler Master CH331 USB',
+    imgSrc: '/ch331.png',
+    originalPrice: 1999,
+    discountedPrice: 1599,
+    discount: 15,
+    isBestseller: true,
+    reviews: {
+      rating: 4.7,
+      amount: 12,
+    }
+  },
 ]
 
 const blogItems = [
