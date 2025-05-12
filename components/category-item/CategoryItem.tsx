@@ -9,7 +9,7 @@ interface ICategoryItemProps {
   link: string;
 }
 
-const CategoryItem: FC<ICategoryItemProps> = ({ name, imgSrc, link }) => { //картинка быдет bgImage или обычная, растянутая на фон? или как сейчас - на фоне смещенная в угол?
+const CategoryItem: FC<ICategoryItemProps> = ({ name, link }) => { //картинка быдет bgImage или обычная, растянутая на фон? или как сейчас - на фоне смещенная в угол?
   return (
     <Link href={link} className={styles['category-item']}>
       <h3 className={styles['category-item__name']}>{name}</h3>

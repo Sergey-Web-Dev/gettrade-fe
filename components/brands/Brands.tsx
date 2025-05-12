@@ -65,7 +65,7 @@ const Brands: FC = () => {
       </div>
       <div>
         <ItemsSlider
-          items={Array.from({ length: 6 }).map((_, index) => <BrandsSlide brands={brands} />)}
+          items={Array.from({ length: 6 }).map((_, index) => <BrandsSlide key={index} brands={brands} />)}
           width={''}
           height={'288px'}
           prevRef={prevRef}

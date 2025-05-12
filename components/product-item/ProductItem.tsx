@@ -1,7 +1,6 @@
 'use client';
 import { FC } from "react";
 import { Product } from "../types/products";
-import Link from "next/link";
 import Image from "next/image";
 import ActionButton from "../action-button/ActionButton";
 import styles from './product-item.module.scss';

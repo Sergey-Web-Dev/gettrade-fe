@@ -5,7 +5,7 @@ import MenuButton from "../menu-button/MenuButton";
 import styles from './header.module.scss';
 import SearchBar from "../search-bar/SearchBar";
 import HeaderButton from "../header-button/HeaderButton";
-import { RefObject, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import CatalogNavMenu from "../catalog-menu/CatalogMenu";
 import { useClickOutsideAndClose } from "@/hooks/useClickOutside";
 

@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import styles from './footer.module.scss';
 import Link from 'next/link';
-import { link } from 'fs';
 
 const socials = [
   {
