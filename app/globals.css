@@ -32,6 +32,7 @@ body {
   font-family: "Inter", "Inter Fallback";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow: unset;
 }
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
