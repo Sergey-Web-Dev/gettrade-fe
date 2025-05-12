@@ -1,6 +1,7 @@
 import Achievements from "@/components/achievements/Achievements";
 import Bestsellers from "@/components/bestsellers/Bestsellers";
 import Blog from "@/components/blog/Blog";
+import Brands from "@/components/brands/Brands";
 import DualSliders from "@/components/dual-sliders/DualSliders";
 import MainSlider from "@/components/main-slider/MainSlider";
 import PopularCategories from "@/components/popular-categories/PopularCategories";
@@ -296,6 +297,7 @@ export default function Home() {
       <PopularCategories categories={categories} />
       <DualSliders slider1Images={smallImages} slider2Images={smallImages} />
       <Bestsellers bestsellers={bestsellers} />
+      <Brands />
       <Blog blogItems={blogItems} />
       <Achievements achievements={achievements} />
     </>
