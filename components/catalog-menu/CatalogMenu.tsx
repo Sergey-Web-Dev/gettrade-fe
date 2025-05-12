@@ -3,7 +3,6 @@ import styles from './catalog-menu.module.scss';
 import { CATALOG_DATA } from "./catalog-data";
 import CatalogMenuContent from "./catalog-menu-content/CatalogMenuContent";
 import CatalogNavigation from "./catalog-navigation/CatalogNavigation";
-import { Category } from "../types/category";
 
 interface ICatalogNavMenuProps {}
 

@@ -6,7 +6,7 @@ import styles from './header.module.scss';
 import SearchBar from "../search-bar/SearchBar";
 import HeaderButton from "../header-button/HeaderButton";
 import { useState } from "react";
-import CatalogNavMenu from "../catalog-nav-menu/CatalogMenu";
+import CatalogNavMenu from "../catalog-menu/CatalogMenu";
 
 const headerButtons = [
   { imgSrc: '/favourites-icon.svg', text: 'Избранное' },
