@@ -1,0 +1,19 @@
+.catalogMenu {
+    position: fixed;
+    top: 104px;
+    left: 0;
+    background-color: #fff;
+    height: 100%;
+    width: 78vw;
+    z-index: 2;
+    border-right: 1px solid #D1D1D1;
+
+    &__container {
+        display: flex;
+        max-width: 1600px;
+        margin: 0 auto;
+        align-items: start;
+        padding-left: 120px;
+    }
+
+}

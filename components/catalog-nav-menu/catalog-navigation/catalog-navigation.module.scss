@@ -1,0 +1,40 @@
+.catalogNavigation {
+    &__categories {
+        border-right: 1px solid #D1D1D1;
+        padding-right: 20px;
+    }
+
+    &__list {
+        padding-top: 20px;
+        overflow-y: auto;
+        height: 90vh;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    &__category {
+        display: flex;
+        align-items: center;
+        padding: 15px;
+        border-radius: 6px 0 0 6px;
+        cursor: pointer;
+        gap: 6px;
+        font-size: 16px;
+        height: 48px;
+        font-weight: 500;
+
+        &:hover {
+            background-color: #DCEBFE;
+        }
+    }
+
+    &__category_active {
+        background-color: #DCEBFE;
+    }
+
+    &__category_name {
+        white-space: nowrap;
+    }
+}
