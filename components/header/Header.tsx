@@ -23,7 +23,7 @@ const Header = () => {
   };
 
   return (
-    <header style={{ borderBottom: '1px solid rgba(209, 209, 209, 1)' }}>
+    <header style={{ borderBottom: '1px solid rgba(209, 209, 209, 1)', position: 'sticky', top: 0, zIndex: 100 }}>
       <div className={`container ${styles.header}`}>
         <Image src='/header-logo.svg' width={230} height={56} alt="Логотип GetTrade" />
         <div className={styles.header__nav}>
