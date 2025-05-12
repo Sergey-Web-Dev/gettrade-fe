@@ -5,8 +5,9 @@ import MenuButton from "../menu-button/MenuButton";
 import styles from './header.module.scss';
 import SearchBar from "../search-bar/SearchBar";
 import HeaderButton from "../header-button/HeaderButton";
-import { useState } from "react";
+import { RefObject, useRef, useState } from "react";
 import CatalogNavMenu from "../catalog-menu/CatalogMenu";
+import { useClickOutsideAndClose } from "@/hooks/useClickOutside";
 
 const headerButtons = [
   { imgSrc: '/favourites-icon.svg', text: 'Избранное' },
@@ -16,7 +17,10 @@ const headerButtons = [
 
 const Header = () => {
 
+  const catalogNavMenuRef = useRef(null);
   const [isMenuActive, setIsMenuActive] = useState<boolean>(false);
+
+  useClickOutsideAndClose(catalogNavMenuRef, () => setIsMenuActive(false));
 
   const handleChangeMenuVisible = () => {
     setIsMenuActive((prev: boolean) => !prev);
@@ -34,7 +38,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-      {isMenuActive ? <CatalogNavMenu /> : null}
+      {isMenuActive ? <div ref={catalogNavMenuRef}><CatalogNavMenu /></div> : null}
     </header>
   )
 }
