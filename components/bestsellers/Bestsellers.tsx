@@ -21,10 +21,10 @@ const Bestsellers: FC<IBestsellersProps> = ({ bestsellers }) => {
             <h2 className={`h2-header ${styles.bestsellers__header}`}>Хиты продаж</h2>
             <div className={styles.bestsellers__slider_nav}>
                 <button ref={prevRef} className={styles.prevEl}>
-                    <Image src='/arrow-prev.svg' width={48} height={48} alt='' />
+                    <Image src='/arrow_left_bg_lightblue.png' width={48} height={48} alt='' />
                 </button>
                 <button ref={nextRef} className={styles.nextEl}>
-                    <Image src='/arrow-next.svg' width={48} height={48} alt='' />
+                    <Image src='/arrow_right_bg_lightblue.png' width={48} height={48} alt='' />
                 </button>
             </div>
 

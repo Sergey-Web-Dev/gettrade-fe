@@ -21,10 +21,10 @@ const Blog: FC<IBlogProps> = ({ blogItems }) => {
             <h2 className={`h2-header ${styles.blog__header}`}>Блог</h2>
             <div className={styles.blog__slider_nav}>
                 <button ref={prevRef} className={styles.prevEl}>
-                    <Image src='/arrow-prev.svg' width={48} height={48} alt='' />
+                    <Image src='/arrow_left_bg_hardblue.png' width={48} height={48} alt='' />
                 </button>
                 <button ref={nextRef} className={styles.nextEl}>
-                    <Image src='/arrow-next.svg' width={48} height={48} alt='' />
+                    <Image src='/arrow_right_bg_hardblue.png' width={48} height={48} alt='' />
                 </button>
             </div>
 
