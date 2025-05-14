@@ -99,7 +99,9 @@ const achievements = [
 
 const bestsellers: Product[] = [
   {
+    id: 0,
     title: 'Гарнитура Cooler Master CH331 USB',
+    slug: 'cooler_master_ch331_usb',
     imgSrc: '/ch331.png',
     originalPrice: 1999,
     discountedPrice: 1599,
@@ -111,7 +113,9 @@ const bestsellers: Product[] = [
     }
   },
   {
+    id: 1,
     title: 'Гарнитура Cooler Master CH331 USB',
+    slug: 'cooler_master_ch331_usb',
     imgSrc: '/ch331.png',
     originalPrice: 1999,
     discountedPrice: 1599,
@@ -123,7 +127,9 @@ const bestsellers: Product[] = [
     }
   },
   {
+    id: 2,
     title: 'Гарнитура Cooler Master CH331 USB',
+    slug: 'cooler_master_ch331_usb',
     imgSrc: '/ch331.png',
     originalPrice: 1999,
     discountedPrice: 1599,
@@ -135,7 +141,9 @@ const bestsellers: Product[] = [
     }
   },
   {
+    id: 3,
     title: 'Гарнитура Cooler Master CH331 USB',
+    slug: 'cooler_master_ch331_usb',
     imgSrc: '/ch331.png',
     originalPrice: 1999,
     discountedPrice: 1599,
@@ -147,7 +155,9 @@ const bestsellers: Product[] = [
     }
   },
   {
+    id: 4,
     title: 'Гарнитура Cooler Master CH331 USB',
+    slug: 'cooler_master_ch331_usb',
     imgSrc: '/ch331.png',
     originalPrice: 1999,
     discountedPrice: 1599,
@@ -159,7 +169,9 @@ const bestsellers: Product[] = [
     }
   },
   {
+    id: 5,
     title: 'Гарнитура Cooler Master CH331 USB',
+    slug: 'cooler_master_ch331_usb',
     imgSrc: '/ch331.png',
     originalPrice: 1999,
     discountedPrice: 1599,
@@ -171,7 +183,9 @@ const bestsellers: Product[] = [
     }
   },
   {
+    id: 6,
     title: 'Гарнитура Cooler Master CH331 USB',
+    slug: 'cooler_master_ch331_usb',
     imgSrc: '/ch331.png',
     originalPrice: 1999,
     discountedPrice: 1599,
