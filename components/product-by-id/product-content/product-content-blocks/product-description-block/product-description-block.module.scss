@@ -1,0 +1,16 @@
+.productDescriptionBlock {
+    line-height: 125%;
+
+    &__more {
+        margin-top: 10px;
+        color: #8C8C8C;
+        cursor: pointer;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+
+        img {
+            filter: brightness(0) saturate(100%) invert(58%) sepia(2%) saturate(16%) hue-rotate(322deg) brightness(96%) contrast(83%);
+        }
+    }
+}

@@ -34,7 +34,7 @@ const ProductItem: FC<IProductItemProps> = ({ product }) => {
           <span className={styles['product-item__info__reviews__amount']}>{amount} оценок</span>
         </div>
       </div>
-      <ActionButton text='КУПИТЬ' onClick={() => console.log('купить')} />
+      <ActionButton text='КУПИТЬ' onClick={() => console.log('купить')} type="small-blue" />
     </Link>
   )
 }

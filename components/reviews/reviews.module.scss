@@ -1,0 +1,25 @@
+.reviews {
+    &__filters {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        gap: 24px;
+        margin-bottom: 32px;
+    }
+
+    &__filter {
+        color: #8C8C8C;
+        cursor: pointer;
+    }
+
+    &__filterActive {
+        font-weight: 500;
+        color: #000;
+    }
+
+    &__cards {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+    }
+}

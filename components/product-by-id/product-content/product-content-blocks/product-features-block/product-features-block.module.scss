@@ -1,0 +1,35 @@
+.productFeaturesBlock {
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    &__feature {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        gap: 10px;
+
+        span {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #1378F5;
+        }
+    }
+
+    &__more {
+        margin-top: 10px;
+        color: #8C8C8C;
+        cursor: pointer;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+
+        img {
+            filter: brightness(0) saturate(100%) invert(58%) sepia(2%) saturate(16%) hue-rotate(322deg) brightness(96%) contrast(83%);
+        }
+    }
+}

@@ -10,22 +10,67 @@ const mockData = {
     gallery: [ {} ],
     originalPrice: 1999,
     discountedPrice: 1599,
+    discont: 15,
     isBestseller: true,
     articul: '21837',
     isFavorite: false,
     bonuses: 339,
     availability: 15,
-    partners: [],
-    characteristics: [ {} ],
-    delivery: [ {} ],
-    description: '',
-    features: [ {} ],
-    guarantee: '',
-    serviceLife: '',
+    brand: { id: 0, imgSrc: '/test-brand.jpg' },
+    characteristics: [
+        { id: 0, title: 'Длина кабеля:', value: '3м' },
+        { id: 1, title: 'Тип:', value: 'Открытые' },
+        { id: 2, title: 'Цвет:', value: 'Черные' },
+        { id: 3, title: 'Чувствительность:', value: '96 дБ SPL / mW' },
+        { id: 4, title: 'Сменные амбушюры:', value: 'Нет' },
+        { id: 5, title: 'Съемный кабель:', value: 'Нет' },
+        { id: 6, title: 'Дополнительная информация:', value: 'прозрачный режим, качественные материалы, объёмный звук, эргономичный OverEar дизайн, Версия Bluetooth: 5.0, профили Bluetooth: A2DP, AVRCP, HFP, HSP; дальность действия: в пределах 10 метров (без препятствий), диаметр динамика: 40 мм; напряжение: 3,7 В, импеданс: 32 Ом ± 15% на 1 кГц, чувствительность: 127 ± 3 дБ на 1 кГц, максимальный диапазон шумоподавления: -30 дБ, входное напряжение: 5 В ⎓ 1 A' },
+    ],
+    delivery: [
+        { id: 0, type: 'Самовывоз в Москве', time: 'Завтра', price: 'Бесплатно' },
+        { id: 1, type: 'Самовывоз в Москве', time: 'До 3 дней', price: '1 000 ₽' },
+        { id: 2, type: 'Самовывоз в Москве', time: 'До 5 дней', price: 'от 500 ₽' },
+        { id: 3, type: 'Самовывоз в Москве', time: 'До 4 дней', price: 'от 500 ₽' },
+    ],
+    description: 'Beyerdynamic DT 990 Pro - открытые головные наушники профессиональной серии PRO. Наушники предназначены для прослушиванию музыки и мониторинга в студии звукозаписи. Наушники Beyerdynamic DT 990 Pro обладают элегантным стилем, который не оставит никого равнодушным. Звучание наушников выделяет четкая звуковая картина и сбалансированное звучание низких частот. Наушники имеют витой кабель, длиной 1 - 3 м.. Для подключения к устройствам медиа есть позолочен фывфывфыв фыв ',
+    features: [
+        { id: 0, text: 'Стереонаушники открытого типа для прослушивания музыки и мониторинга в студии;' },
+        { id: 1, text: 'Четкое и детализированное звучание с сбалансированными басами;' },
+        { id: 2, text: 'Размер и форма наушников и форма гарантируют исключительный комфорт при постоянном использовании;' },
+        { id: 3, text: 'Качественный, витой кабель, длиной 1 - 3 м.;' },
+        { id: 4, text: 'Стереонаушники открытого типа для прослушивания музыки и мониторинга в студии;' },
+    ],
+    guarantee: '5 лет',
+    serviceLife: '1 год',
     reviews: {
         rating: 4.7,
         amount: 12,
-        data: [ {} ]
+        data: [
+            {
+                id: 0,
+                rate: 4.5,
+                attaches: [],
+                person: {
+                    name: 'Egorka',
+                    avatar: '',
+                },
+                comment: 'Комментарий: Натуральный оригинал, доставка на следующий день, работает без проблем как и должно для продукции apple, два гнезда, рекомендую',
+                advantages: 'Крутые два уха',
+                disadvantages: 'нет',
+            },
+            {
+                id: 1,
+                rate: 4.5,
+                attaches: [],
+                person: {
+                    name: 'Egorka',
+                    avatar: '',
+                },
+                comment: 'Комментарий: Натуральный оригинал, доставка на следующий день, работает без проблем как и должно для продукции apple, два гнезда, рекомендую',
+                advantages: 'Крутые два уха',
+                disadvantages: 'нет',
+            },
+        ]
     },
 
 }
@@ -42,7 +87,7 @@ export default function ProductByID() {
                     gallery={mockData.gallery}
                     isBestseller={mockData.isBestseller}
                     articul={mockData.articul}
-                    partners={mockData.partners}
+                    brand={mockData.brand}
                     characteristics={mockData.characteristics}
                     delivery={mockData.delivery}
                     description={mockData.description}
@@ -54,6 +99,7 @@ export default function ProductByID() {
                 <ProductPrice 
                     originalPrice={mockData.originalPrice}
                     discountedPrice={mockData.discountedPrice}
+                    discont={mockData.discont}
                     isFavorite={mockData.isFavorite}
                     bonuses={mockData.bonuses}
                     availability={mockData.availability}

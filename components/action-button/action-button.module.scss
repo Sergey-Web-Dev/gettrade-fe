@@ -1,4 +1,4 @@
-.action-button {
+.small-blue-action-button {
   padding: 11px 0;
   text-align: center;
   background-color: var(--brand-blue);
@@ -7,4 +7,37 @@
   color: #fff;
   font-size: 14px;
   font-weight: 500;
+}
+
+.medium-blue-action-button {
+  padding: 15px 0;
+  text-align: center;
+  background-color: var(--brand-blue);
+  border-radius: 16px;
+  width: 100%;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.small-grey-action-button {
+  padding: 11px 0;
+  text-align: center;
+  background-color: var(--brand-grey);
+  border-radius: 4px;
+  width: 100%;
+  color: #000;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.medium-grey-action-button {
+  padding: 15px 0;
+  text-align: center;
+  background-color: var(--brand-grey);
+  border-radius: 16px;
+  width: 100%;
+  color: #000;
+  font-size: 16px;
+  font-weight: 400;
 }

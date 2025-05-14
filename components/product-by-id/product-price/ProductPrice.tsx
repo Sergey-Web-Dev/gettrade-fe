@@ -6,31 +6,37 @@ import ActionButton from "@/components/action-button/ActionButton";
 interface IProductPrice {
     originalPrice: number;
     discountedPrice: number;
+    discont: number;
     isFavorite: boolean;
     bonuses: number;
     availability: number;
 }
 
-const ProductPrice: FC<IProductPrice> = ({  }) => {
+const ProductPrice: FC<IProductPrice> = ({ originalPrice, discountedPrice, discont, isFavorite, bonuses, availability }) => {
     return (
         <div className={styles.productPrice}>
             <div className={styles.productPrice__priceAndFavorite}>
-                <p className={styles.productPrice__discountPrice}>
-                    <span className={styles.productPrice__discount}></span>
-                </p>
+                <div className={styles.productPrice__discountPrice}>
+                    <p>{discountedPrice} ₽</p>
+                    <span className={styles.productPrice__discount}>-{discont}%</span>
+                </div>
                 <button className={styles.productPrice__favorite}>
                     <Image src='/favourites.svg' width={20} height={18} alt={`Добавить в избранное`} />
                 </button>
             </div>
-            <p className={styles.productPrice__originalPrice}></p>
+            <p className={styles.productPrice__originalPrice}>{originalPrice} ₽</p>
             <p className={styles.productPrice__bonuses}>
-                +339
+                <p>+{bonuses}</p>
                 <span className={styles.productPrice__bonusIcon}></span>
-                <span className={styles.productPrice__bonusText}></span>
+                <span className={styles.productPrice__bonusText}>бонусных GETов за покупку</span>
             </p>
             <div className={styles.productPrice__btns}>
-                <ActionButton text="В корзину" onClick={() => null} />
-                <ActionButton text="Купить в 1 клик" onClick={() => null} />
+                <ActionButton text="В КОРЗИНУ" onClick={() => null} type="medium-blue" />
+                <ActionButton text="КУПИТЬ В 1 КЛИК" onClick={() => null} type="medium-grey" />
+            </div>
+            <div className={styles.productPrice__availability}>
+                <Image src='/availability.svg' alt="" width={16} height={16} />
+                <p className={styles.productPrice__availability_text}>В наличии: <span>{availability} шт.</span></p>
             </div>
         </div>
     )
