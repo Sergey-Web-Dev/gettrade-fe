@@ -75,6 +75,7 @@ const ProductContent: FC<IProductContent> = ({
                 <ProductGarantyBlock guarantee={guarantee} serviceLife={serviceLife} />
             </div>
             <div className={styles.productContent__section}>
+                <div className={styles.productContent__maxLine}></div>
                 <p className={styles.productContent__title}>Отзывы <span> {reviews.amount} </span></p>
                 <Reviews reviews={reviews.data} pages={reviews.pages} />
             </div>
