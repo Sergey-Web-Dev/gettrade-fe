@@ -5,8 +5,110 @@ import styles from './page.module.scss';
 import ProductPrice from "@/components/product-by-id/product-price/ProductPrice";
 import ProductContent from "@/components/product-by-id/product-content/ProductContent";
 import Bestsellers from "@/components/bestsellers/Bestsellers";
-import { bestsellers } from "@/app/page";
 import PagesNavigation from "@/components/pages-navigation/PagesNavigation";
+import {Product} from "@/components/types/products";
+
+const bestsellers: Product[] = [
+    {
+        id: 0,
+        title: 'Гарнитура Cooler Master CH331 USB',
+        slug: 'cooler_master_ch331_usb',
+        imgSrc: '/ch331.png',
+        originalPrice: 1999,
+        discountedPrice: 1599,
+        discount: 15,
+        isBestseller: true,
+        reviews: {
+            rating: 4.7,
+            amount: 12,
+        }
+    },
+    {
+        id: 1,
+        title: 'Гарнитура Cooler Master CH331 USB',
+        slug: 'cooler_master_ch331_usb',
+        imgSrc: '/ch331.png',
+        originalPrice: 1999,
+        discountedPrice: 1599,
+        discount: 15,
+        isBestseller: true,
+        reviews: {
+            rating: 4.7,
+            amount: 12,
+        }
+    },
+    {
+        id: 2,
+        title: 'Гарнитура Cooler Master CH331 USB',
+        slug: 'cooler_master_ch331_usb',
+        imgSrc: '/ch331.png',
+        originalPrice: 1999,
+        discountedPrice: 1599,
+        discount: 15,
+        isBestseller: true,
+        reviews: {
+            rating: 4.7,
+            amount: 12,
+        }
+    },
+    {
+        id: 3,
+        title: 'Гарнитура Cooler Master CH331 USB',
+        slug: 'cooler_master_ch331_usb',
+        imgSrc: '/ch331.png',
+        originalPrice: 1999,
+        discountedPrice: 1599,
+        discount: 15,
+        isBestseller: true,
+        reviews: {
+            rating: 4.7,
+            amount: 12,
+        }
+    },
+    {
+        id: 4,
+        title: 'Гарнитура Cooler Master CH331 USB',
+        slug: 'cooler_master_ch331_usb',
+        imgSrc: '/ch331.png',
+        originalPrice: 1999,
+        discountedPrice: 1599,
+        discount: 15,
+        isBestseller: true,
+        reviews: {
+            rating: 4.7,
+            amount: 12,
+        }
+    },
+    {
+        id: 5,
+        title: 'Гарнитура Cooler Master CH331 USB',
+        slug: 'cooler_master_ch331_usb',
+        imgSrc: '/ch331.png',
+        originalPrice: 1999,
+        discountedPrice: 1599,
+        discount: 15,
+        isBestseller: true,
+        reviews: {
+            rating: 4.7,
+            amount: 12,
+        }
+    },
+    {
+        id: 6,
+        title: 'Гарнитура Cooler Master CH331 USB',
+        slug: 'cooler_master_ch331_usb',
+        imgSrc: '/ch331.png',
+        originalPrice: 1999,
+        discountedPrice: 1599,
+        discount: 15,
+        isBestseller: true,
+        reviews: {
+            rating: 4.7,
+            amount: 12,
+        }
+    },
+]
+
 
 const mockData = {
     title: 'Beyerdynamic DT 990 PRO 250 ohms',
