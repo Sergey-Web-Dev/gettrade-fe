@@ -2,6 +2,7 @@ import { FC } from "react";
 import styles from './review-card.module.scss';
 import { Review } from "../types/review";
 import Image from "next/image";
+import RatingStars from "../rating-stars/RatingStars";
 
 interface IReviewCard {
     review: Review
@@ -20,6 +21,7 @@ const ReviewCard: FC<IReviewCard> = ({ review }) => {
                     </div>
                 </div>
                 <div className={styles.reviewCard__rate}>
+                    <RatingStars rate={review.rate} />
                     <p className={styles.reviewCard__rate_num}>{review.rate}</p>
                 </div>
             </div>

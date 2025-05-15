@@ -6,4 +6,15 @@
         display: grid;
         grid-template-columns: 1fr 25%;
     }
+
+    &__anotherProducts {
+        border-top: 1px solid var(--border);
+    }
+
+    &__navigation {
+        padding: 52px 0 32px 0;
+    }
+    &__border {
+        border-bottom: 1px solid var(--border);
+    }
 }

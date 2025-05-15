@@ -2,9 +2,11 @@ import { FC, useState } from "react";
 import styles from './reviews.module.scss';
 import { Review } from "../types/review";
 import ReviewCard from "../review-card/ReviewCard";
+import ActionButton from "../action-button/ActionButton";
 
 interface IReviews {
     reviews: Review[];
+    pages: number;
 }
 
 const filters = [
@@ -14,12 +16,17 @@ const filters = [
     { id: 3, title: 'С низкой оценкой' },
 ];
 
-const Reviews: FC<IReviews> = ({ reviews }) => {
+const Reviews: FC<IReviews> = ({ reviews, pages }) => {
 
     const [activeTab, setActiveTab] = useState<{ id: number, title: string }>(filters[0]);
+    const [currentPage, setCurrentPage] = useState<number>(1);
 
     const handleChangeActiveTab = (activeTab: { id: number, title: string }) => {
         setActiveTab(activeTab);
+    }
+
+    const handlePageChange = (page: number) => {
+        setCurrentPage(page);
     }
 
     return (
@@ -40,6 +47,21 @@ const Reviews: FC<IReviews> = ({ reviews }) => {
                     <div key={review.id}>
                         <ReviewCard review={review} />
                     </div>
+                ))}
+            </ul>
+            <ActionButton text="ПОКАЗАТЬ ЕЩЕ" onClick={() => null} type="medium-grey"/>
+            <ul className={styles.reviews__pages}>
+                {Array.from({ length: pages }, (_, index) => (
+                    <li 
+                        key={index + 1}
+                        className={`
+                            ${styles.reviews__page} 
+                            ${currentPage === index + 1 ? styles.reviews__pageActive : ''}
+                        `}
+                        onClick={() => handlePageChange(index + 1)}
+                    >
+                        {index + 1}
+                    </li>
                 ))}
             </ul>
         </div>

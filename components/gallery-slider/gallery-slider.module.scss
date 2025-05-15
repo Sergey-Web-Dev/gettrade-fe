@@ -1,5 +1,46 @@
-.gallerySlider {
-    width: 655px;
-    height: 500px;
-    background-color: rgb(179, 179, 179);
+.gallerySwiper {
+
+    display: flex;
+    gap: 20px;
+
+    &__vertical {
+        height: 500px;
+        width: 115px;
+    }
+
+    &__horizontal {
+        height: 500px;
+        width: 500px;
+    }
+
+    &__vertical_slide {
+        width: 115px;
+        height: 115px;
+        border-radius: 12px;
+        img {
+            border-radius: 12px;
+            width: 115px;
+            height: 115px;
+        }
+    }
+
+    &__vertical_slide, &__horizontal_slide {
+        border: 1px solid transparent;
+    }
+
+    &__horizontalWrapper {
+        position: relative;
+    }
+
+    &__nav {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        z-index: 1;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 }

@@ -31,7 +31,10 @@
     }
 
     &__rate {
-
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        gap: 6px;
     }
 
     &__rate_num {
@@ -45,6 +48,8 @@
 
     &__attach {
         border-radius: 12px;
+        width: 64px;
+        height: 64px;
     }
 
     &__data {

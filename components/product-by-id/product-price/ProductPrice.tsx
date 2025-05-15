@@ -26,7 +26,7 @@ const ProductPrice: FC<IProductPrice> = ({ originalPrice, discountedPrice, disco
             </div>
             <p className={styles.productPrice__originalPrice}>{originalPrice} ₽</p>
             <p className={styles.productPrice__bonuses}>
-                <p>+{bonuses}</p>
+                <span>+{bonuses}</span>
                 <span className={styles.productPrice__bonusIcon}></span>
                 <span className={styles.productPrice__bonusText}>бонусных GETов за покупку</span>
             </p>

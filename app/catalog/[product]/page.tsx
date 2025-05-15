@@ -4,10 +4,20 @@ import { useParams } from "next/navigation";
 import styles from './page.module.scss';
 import ProductPrice from "@/components/product-by-id/product-price/ProductPrice";
 import ProductContent from "@/components/product-by-id/product-content/ProductContent";
+import Bestsellers from "@/components/bestsellers/Bestsellers";
+import { bestsellers } from "@/app/page";
+import PagesNavigation from "@/components/pages-navigation/PagesNavigation";
 
 const mockData = {
     title: 'Beyerdynamic DT 990 PRO 250 ohms',
-    gallery: [ {} ],
+    gallery: [
+        { id: 0, img: 'https://swiperjs.com/demos/images/nature-1.jpg' },
+        { id: 1, img: 'https://swiperjs.com/demos/images/nature-2.jpg' },
+        { id: 2, img: 'https://swiperjs.com/demos/images/nature-3.jpg' },
+        { id: 3, img: 'https://swiperjs.com/demos/images/nature-4.jpg' },
+        { id: 4, img: 'https://swiperjs.com/demos/images/nature-5.jpg' },
+        { id: 5, img: 'https://swiperjs.com/demos/images/nature-6.jpg' },
+    ],
     originalPrice: 1999,
     discountedPrice: 1599,
     discont: 15,
@@ -45,14 +55,15 @@ const mockData = {
     reviews: {
         rating: 4.7,
         amount: 12,
+        pages: 4,
         data: [
             {
                 id: 0,
-                rate: 4.5,
+                rate: 3.1,
                 attaches: [],
                 person: {
                     name: 'Egorka',
-                    avatar: '',
+                    avatar: '/odnoklassniki.svg',
                 },
                 comment: 'Комментарий: Натуральный оригинал, доставка на следующий день, работает без проблем как и должно для продукции apple, два гнезда, рекомендую',
                 advantages: 'Крутые два уха',
@@ -60,11 +71,11 @@ const mockData = {
             },
             {
                 id: 1,
-                rate: 4.5,
+                rate: 4.8,
                 attaches: [],
                 person: {
                     name: 'Egorka',
-                    avatar: '',
+                    avatar: '/odnoklassniki.svg',
                 },
                 comment: 'Комментарий: Натуральный оригинал, доставка на следующий день, работает без проблем как и должно для продукции apple, два гнезда, рекомендую',
                 advantages: 'Крутые два уха',
@@ -80,8 +91,12 @@ export default function ProductByID() {
     const { product } = useParams(); /* извлекаем id и получаем товар */
 
     return (
-        <div className={`container ${styles.product}`}>
-            <div className={styles.product__container}>
+        <div className={styles.product}>
+            <div className={`container ${styles.product__navigation}`}>
+                <PagesNavigation navigationData={[ { id: 0, title: 'каталог' }, { id: 1, title: 'наушники' } ]} />
+            </div>
+            <div className={styles.product__border}></div>
+            <div className={`container ${styles.product__container} `}>
                 <ProductContent 
                     title={mockData.title}
                     gallery={mockData.gallery}
@@ -104,6 +119,9 @@ export default function ProductByID() {
                     bonuses={mockData.bonuses}
                     availability={mockData.availability}
                 />
+            </div>
+            <div className={styles.product__anotherProducts}>
+                <Bestsellers bestsellers={bestsellers} />
             </div>
         </div>
     )

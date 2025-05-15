@@ -1,0 +1,25 @@
+.pagesNavigation {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 16px;
+
+    &__item {
+        color: #67809F;
+        text-transform: uppercase;
+        font-weight: 500;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        gap: 16px;
+
+        &:first-child &_slash {
+            display: none;
+        }
+
+        &:last-child {
+            color: #1378F5;
+        }
+    }
+
+}

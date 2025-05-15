@@ -24,6 +24,7 @@ interface IProductContent {
     reviews: {
         rating: number;
         amount: number;
+        pages: number;
         data: Review[];
     }
 }
@@ -45,7 +46,7 @@ const ProductContent: FC<IProductContent> = ({
     return (
         <div className={styles.productContent}>
             <div className={styles.productContent__galleryAndInfo}>
-                <GallerySlider />
+                <GallerySlider gallery={gallery} />
                 <ProductMainInfo 
                     title={title} 
                     isBestseller={isBestseller} 
@@ -75,7 +76,7 @@ const ProductContent: FC<IProductContent> = ({
             </div>
             <div className={styles.productContent__section}>
                 <p className={styles.productContent__title}>Отзывы <span> {reviews.amount} </span></p>
-                <Reviews reviews={reviews.data} />
+                <Reviews reviews={reviews.data} pages={reviews.pages} />
             </div>
         </div>
     )
