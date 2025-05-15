@@ -121,7 +121,7 @@ export default function ProductByID() {
                 />
             </div>
             <div className={styles.product__anotherProducts}>
-                <Bestsellers bestsellers={bestsellers} />
+                <Bestsellers bestsellers={bestsellers} title={'С этим товаром покупают'} />
             </div>
         </div>
     )

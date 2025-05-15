@@ -310,7 +310,7 @@ export default function Home() {
       <MainSlider images={bigImages} />
       <PopularCategories categories={categories} />
       <DualSliders slider1Images={smallImages} slider2Images={smallImages} />
-      <Bestsellers bestsellers={bestsellers} />
+      <Bestsellers bestsellers={bestsellers} title={'Хиты продаж'} />
       <Brands />
       <Blog blogItems={blogItems} />
       <Achievements achievements={achievements} />

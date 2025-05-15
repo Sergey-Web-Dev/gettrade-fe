@@ -9,16 +9,17 @@ import Image from "next/image";
 
 interface IBestsellersProps {
   bestsellers: Product[]
+  title: string;
 }
 
-const Bestsellers: FC<IBestsellersProps> = ({ bestsellers }) => {
+const Bestsellers: FC<IBestsellersProps> = ({ bestsellers, title }) => {
     const nextRef = useRef(null);
     const prevRef = useRef(null);
 
   return (
     <main className={`container ${styles.bestsellers}`}>
         <div className={styles.bestsellers__title_and_nav}>
-            <h2 className={`h2-header ${styles.bestsellers__header}`}>Хиты продаж</h2>
+            <h2 className={`h2-header ${styles.bestsellers__header}`}>{title}</h2>
             <div className={styles.bestsellers__slider_nav}>
                 <button ref={prevRef} className={styles.prevEl}>
                     <Image src='/arrow_left_bg_lightblue.png' width={48} height={48} alt='' />

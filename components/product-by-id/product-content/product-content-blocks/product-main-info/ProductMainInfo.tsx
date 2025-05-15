@@ -1,6 +1,7 @@
 import { FC } from "react";
 import styles from './product-main-info.module.scss';
 import Image from "next/image";
+import Link from "next/link";
 
 interface IProductMainInfo {
     title: string;
@@ -43,7 +44,7 @@ const ProductMainInfo: FC<IProductMainInfo> = ({
                     </li>
                 ))}
             </ul>
-            <p className={styles.productMainInfo__more}>Все характеристики <Image src='/arrow-down.svg' alt="" width={20} height={20} /> </p>
+            <Link href={'#characteristics'} className={styles.productMainInfo__more}>Все характеристики <Image src='/arrow-down.svg' alt="" width={20} height={20} /> </Link>
             <p className={styles.productMainInfo__deliveryTitle}>Способы доставки</p>
             <ul className={styles.productMainInfo__list}>
                 {delivery && delivery.map((delivery: { id: number, type: string, time: string, price: string }) => (

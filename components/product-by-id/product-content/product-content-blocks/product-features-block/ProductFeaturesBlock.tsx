@@ -21,7 +21,7 @@ const ProductFeaturesBlock: FC<IProductFeaturesBlock> = ({ features }) => {
     }
 
     return (
-        <div className={styles.productFeaturesBlock}>
+        <div className={styles.productFeaturesBlock} id="characteristics">
             <ul className={styles.productFeaturesBlock__list}>
                 {controlledFeatures && controlledFeatures.map((feature: { id: number, text: string }) => (
                     <li key={feature.id} className={styles.productFeaturesBlock__feature}>
