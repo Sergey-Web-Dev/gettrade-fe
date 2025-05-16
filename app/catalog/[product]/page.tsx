@@ -34,7 +34,7 @@ const bestsellers: Product[] = [
         isBestseller: true,
         reviews: {
             rating: 4.7,
-            amount: 12,
+            amount: 17,
         }
     },
     {
