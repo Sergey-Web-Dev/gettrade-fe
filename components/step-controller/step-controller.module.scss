@@ -1,0 +1,18 @@
+.switcher {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    &__item, &__item_active {
+        padding: 12px 32px;
+        color: #67809F;
+        text-transform: uppercase;
+        font-weight: 500;
+        border-bottom: 2px solid #67809F;
+    }
+
+    &__item_active {
+        border-bottom: 2px solid #1378F5;
+        color: #1378F5;
+    }
+}
