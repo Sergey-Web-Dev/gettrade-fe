@@ -7,11 +7,11 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 
 const orders = [
-    { id: 0, title: 'Гарнитура Cooler Master CH331 USB', category: 'Наушники', articul: 'А066242', img: '', count: 2, price: '1 599 ₽' },
-    { id: 1, title: 'Beyerdynamic DT 990 PRO 250 ohms', category: 'Наушники', articul: 'А066242', img: '', count: 1, price: '1 599 ₽' },
+    { id: 0, title: 'Гарнитура Cooler Master CH331 USB', category: 'Наушники', articul: 'А066242', img: '/headphones1.jpg', count: 2, price: '1 599 ₽' },
+    { id: 1, title: 'Beyerdynamic DT 990 PRO 250 ohms', category: 'Наушники', articul: 'А066242', img: '/headphones4.jpg', count: 1, price: '1 599 ₽' },
 ];
 
-const isSuccess = true;
+const isSuccess = false;
 
 const CompletionBlock: FC = () => {
 
@@ -39,7 +39,9 @@ const CompletionBlock: FC = () => {
             <p className={styles.completionBlock__subtitle}>{subtitle}</p>
             <ul className={styles.completionBlock__orders}>
                 {orders && orders.map((order: OrderCardType) => (
-                    <OrderCard order={order} />
+                    <li key={order.id} className={styles.completionBlock__order}>
+                        <OrderCard order={order} />
+                    </li>
                 ))}
             </ul>
             <div className={styles.completionBlock__btn}>

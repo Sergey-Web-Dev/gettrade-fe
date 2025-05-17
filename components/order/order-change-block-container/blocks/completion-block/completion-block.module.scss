@@ -19,7 +19,14 @@
 
     &__orders {
         width: 100%;
-        margin-bottom: 32px;
+    }
+
+    &__order {
+        border-bottom: 1px solid #D1D1D1;
+
+        &:last-child {
+            border-bottom: none;
+        }
     }
 
     &__btn {
