@@ -113,12 +113,10 @@ const bestsellers: Product[] = [
 const mockData = {
     title: 'Beyerdynamic DT 990 PRO 250 ohms',
     gallery: [
-        { id: 0, img: 'https://swiperjs.com/demos/images/nature-1.jpg' },
-        { id: 1, img: 'https://swiperjs.com/demos/images/nature-2.jpg' },
-        { id: 2, img: 'https://swiperjs.com/demos/images/nature-3.jpg' },
-        { id: 3, img: 'https://swiperjs.com/demos/images/nature-4.jpg' },
-        { id: 4, img: 'https://swiperjs.com/demos/images/nature-5.jpg' },
-        { id: 5, img: 'https://swiperjs.com/demos/images/nature-6.jpg' },
+        { id: 0, img: '/headphones1.jpg' },
+        { id: 1, img: '/headphones2.jpg' },
+        { id: 2, img: '/headphones3.jpg' },
+        { id: 3, img: '/headphones4.jpg' },
     ],
     originalPrice: 1999,
     discountedPrice: 1599,
@@ -144,7 +142,7 @@ const mockData = {
         { id: 2, type: 'Самовывоз в Москве', time: 'До 5 дней', price: 'от 500 ₽' },
         { id: 3, type: 'Самовывоз в Москве', time: 'До 4 дней', price: 'от 500 ₽' },
     ],
-    description: 'Beyerdynamic DT 990 Pro - открытые головные наушники профессиональной серии PRO. Наушники предназначены для прослушиванию музыки и мониторинга в студии звукозаписи. Наушники Beyerdynamic DT 990 Pro обладают элегантным стилем, который не оставит никого равнодушным. Звучание наушников выделяет четкая звуковая картина и сбалансированное звучание низких частот. Наушники имеют витой кабель, длиной 1 - 3 м.. Для подключения к устройствам медиа есть позолочен фывфывфыв фыв ',
+    description: 'Beyerdynamic DT 990 Pro - открытые головные наушники профессиональной серии PRO. Наушники предназначены для прослушиванию музыки и мониторинга в студии звукозаписи. Наушники Beyerdynamic DT 990 Pro обладают элегантным стилем, который не оставит никого равнодушным. Звучание наушников выделяет четкая звуковая картина и сбалансированное звучание низких частот. Наушники имеют витой кабель, длиной 1 - 3 м.. Для подключения к устройствам медиа есть позолочен. Наушники предназначены для прослушиванию музыки и мониторинга в студии звукозаписи. Наушники Beyerdynamic DT 990 Pro обладают элегантным стилем, который не оставит никого равнодушным. Звучание наушников выделяет четкая звуковая картина и сбалансированное звучание низких частот. Наушники имеют витой кабель, длиной 1 - 3 м.. ',
     features: [
         { id: 0, text: 'Стереонаушники открытого типа для прослушивания музыки и мониторинга в студии;' },
         { id: 1, text: 'Четкое и детализированное звучание с сбалансированными басами;' },
@@ -162,10 +160,10 @@ const mockData = {
             {
                 id: 0,
                 rate: 3.1,
-                attaches: [],
+                attaches: [ { id: 0, imgSrc: '/example-review-attach.jpg' }, { id: 1, imgSrc: '/example-review-attach.jpg' } ],
                 person: {
-                    name: 'Egorka',
-                    avatar: '/odnoklassniki.svg',
+                    name: 'Виталий',
+                    avatar: '/example-avatar.png',
                 },
                 comment: 'Комментарий: Натуральный оригинал, доставка на следующий день, работает без проблем как и должно для продукции apple, два гнезда, рекомендую',
                 advantages: 'Крутые два уха',
@@ -176,8 +174,8 @@ const mockData = {
                 rate: 4.8,
                 attaches: [],
                 person: {
-                    name: 'Egorka',
-                    avatar: '/odnoklassniki.svg',
+                    name: 'Виталий',
+                    avatar: '/example-avatar.png',
                 },
                 comment: 'Комментарий: Натуральный оригинал, доставка на следующий день, работает без проблем как и должно для продукции apple, два гнезда, рекомендую',
                 advantages: 'Крутые два уха',
@@ -188,6 +186,15 @@ const mockData = {
 
 }
 
+const mockNavData = [
+    { id: 0, title: 'Главная' },
+    { id: 1, title: 'Каталог' },
+    { id: 2, title: 'наушники' },
+    { id: 3, title: 'Студийные/мониторные наушники' },
+    { id: 4, title: 'cooler master' },
+    { id: 5, title: 'Гарнитура Cooler Master CH331 USB' },
+]
+
 export default function ProductByID() {
 
     const { product } = useParams(); /* извлекаем id и получаем товар */
@@ -195,7 +202,7 @@ export default function ProductByID() {
     return (
         <div className={styles.product}>
             <div className={`container ${styles.product__navigation}`}>
-                <PagesNavigation navigationData={[ { id: 0, title: 'каталог' }, { id: 1, title: 'наушники' } ]} />
+                <PagesNavigation navigationData={mockNavData} />
             </div>
             <div className={styles.product__border}></div>
             <div className={`container ${styles.product__container} `}>
