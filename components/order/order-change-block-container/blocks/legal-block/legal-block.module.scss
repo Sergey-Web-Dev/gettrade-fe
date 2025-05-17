@@ -1,0 +1,45 @@
+.legalBlock {
+    display: flex;
+    flex-direction: column;
+
+    &__section {
+        padding: 32px 0;
+        border-top: 1px solid #D1D1D1;
+
+        &:last-child {
+            padding-bottom: 0;
+        }
+    }
+
+    &__section_container {
+        display: flex;
+        width: 100%;
+        max-width: 761px;
+        gap: 20px;
+    }
+
+    &__section_title {
+        font-size: 18px;
+        font-weight: 500;
+        min-width: 327px;
+
+        span {
+            color: #1378F5;
+        }
+    }
+
+    &__column {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    &__input {
+        min-width: 414px;
+    }
+
+    &__btn {
+        width: 191px;
+        margin-left: auto;
+    }
+}

@@ -4,7 +4,6 @@ import { FC, useState } from "react";
 import styles from './order-content.module.scss';
 import StepController from "@/components/step-controller/StepController";
 import OrderChangeBlockContainer from "../order-change-block-container/OrderChangeBlockContainer";
-import { StepControllerType } from "@/components/types/stepController";
 
 const STEPS = [
     { id: 0, title: 'Личные данные', active: 'personal' },
@@ -14,13 +13,30 @@ const STEPS = [
 
 const OrderContent: FC= () => {
 
-    const [step, setStep] = useState<StepControllerType>(STEPS[0]);
+    const [step, setStep] = useState<number>(STEPS[0].id);
+    const [body, setBody] = useState({});
+
+    const next = (values: any) => {
+        setStep((prev: number) => ++prev);
+        setBody((prevBody) => ({
+            ...prevBody,
+            ...values,
+        }));
+    };
+
+    const back = (values: any) => {
+        setStep((prev: number) => --prev);
+        setBody((prevBody) => ({
+            ...prevBody,
+            ...values,
+        }));
+    };
 
     return (
         <div className={styles.orderContent}>
             <StepController data={STEPS} active={step} />
             <div className={styles.orderContent__container}>
-                <OrderChangeBlockContainer active={step.active} setActive={setStep} />
+                <OrderChangeBlockContainer active={step} setNext={next} setPrev={back} body={body} />
             </div>
         </div>
     )

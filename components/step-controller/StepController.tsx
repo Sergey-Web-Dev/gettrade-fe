@@ -4,7 +4,7 @@ import { StepControllerType } from "../types/stepController";
 
 interface IStepController {
     data: StepControllerType[];
-    active: StepControllerType;
+    active: number;
 }
 
 const StepController: FC<IStepController> = ({ data, active }) => {
@@ -13,7 +13,7 @@ const StepController: FC<IStepController> = ({ data, active }) => {
             {data && data.map((item: StepControllerType) => (
                 <li
                     key={item.id}
-                    className={item.id === active.id ? styles.switcher__item_active : styles.switcher__item}
+                    className={item.id === active ? styles.switcher__item_active : styles.switcher__item}
                 >
                     {item.title}
                 </li>
