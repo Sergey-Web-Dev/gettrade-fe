@@ -33,10 +33,10 @@ const CheckoutBlock: FC<ICheckoutBlock> = ({ body, setNext, setPrev }) => {
         delivery_address: body.checkout?.delivery_address || '',
         index: body.checkout?.index || '',
         comment: body.checkout?.comment || '',
+        delivery_type: body.checkout?.delivery_type || deliveryTypes[0],
+        payment_type: body.checkout?.payment_type || paymentTypes[0]
     }
 
-    const [delivery, setDelivery] = useState(deliveryTypes[0]);
-    const [payment, setPayment] = useState(paymentTypes[0]);
 
     const onFormSubmit = (formvalues: any) => {
         setNext({ checkout: formvalues });
@@ -46,48 +46,52 @@ const CheckoutBlock: FC<ICheckoutBlock> = ({ body, setNext, setPrev }) => {
     return (
         <div className={styles.checkoutBlock}>
             <Formik initialValues={initialFormValues} onSubmit={(formValues: any) => onFormSubmit(formValues)}>
-                <Form>
-                    <div className={styles.checkoutBlock__section}>
-                        <div className={styles.checkoutBlock__section_container}>
-                            <p className={styles.checkoutBlock__section_title}>Тип доставки</p>
-                            <Switcher data={deliveryTypes} type="multi" active={delivery} onClickFn={setDelivery} />
-                        </div>
-                    </div>
-                    <div className={styles.checkoutBlock__section}>
-                        <div className={styles.checkoutBlock__section_container}>
-                            <p className={styles.checkoutBlock__section_title}>Данные для доставки</p>
-                            <div className={styles.checkoutBlock__column}>
-                                <FormikInputField type="text" name="city" placeholder="Город" className={styles.checkoutBlock__input} />
-                                <FormikInputField type="text" name="delivery_address" placeholder="Адрес доставки" className={styles.checkoutBlock__input} />
-                                <FormikInputField type="text" name="index" placeholder="Индекс" className={styles.checkoutBlock__input} />
+                {({ values }) => (
+                    <Form>
+                        <div className={styles.checkoutBlock__section}>
+                            <div className={styles.checkoutBlock__section_container}>
+                                <p className={styles.checkoutBlock__section_title}>Тип доставки</p>
+                                <Switcher data={deliveryTypes} type="multi" name="delivery_type" />
                             </div>
                         </div>
-                    </div>
-                    <div className={styles.checkoutBlock__section}>
-                        <div className={styles.checkoutBlock__section_container}>
-                            <p className={styles.checkoutBlock__section_title}>Дополнительная информация</p>
-                            <FormikTextareaField name="comment" placeholder="Комментарий" className={styles.checkoutBlock__input} />
-                        </div>
-                    </div>
-                    <div className={styles.checkoutBlock__section}>
-                        <div className={styles.checkoutBlock__section_container}>
-                            <p className={styles.checkoutBlock__section_title}>Метод оплаты</p>
-                            <Switcher data={paymentTypes} type="default" active={payment} onClickFn={setPayment} />
-                        </div>
-                    </div>
-                    <div className={styles.checkoutBlock__section}>
-                        <div className={styles.checkoutBlock__section_container}>
-                            <div className={styles.checkoutBlock__btns}>
-                                <div className={styles.checkoutBlock__btn}>
-                                    <BackButton onClick={setPrev} />
+                        {values.delivery_type.id ? (
+                            <div className={styles.checkoutBlock__section}>
+                                <div className={styles.checkoutBlock__section_container}>
+                                    <p className={styles.checkoutBlock__section_title}>Данные для доставки</p>
+                                    <div className={styles.checkoutBlock__column}>
+                                        <FormikInputField type="text" name="city" placeholder="Город" className={styles.checkoutBlock__input} />
+                                        <FormikInputField type="text" name="delivery_address" placeholder="Адрес доставки" className={styles.checkoutBlock__input} />
+                                        <FormikInputField type="text" name="index" placeholder="Индекс" className={styles.checkoutBlock__input} />
+                                    </div>
                                 </div>
-                                <div className={styles.checkoutBlock__btn}>
-                                    <ActionButton text="Оплатить" onClick={() => null} type="medium-blue" inForm />
+                            </div>
+                        ) : null}
+                        <div className={styles.checkoutBlock__section}>
+                            <div className={styles.checkoutBlock__section_container}>
+                                <p className={styles.checkoutBlock__section_title}>Дополнительная информация</p>
+                                <FormikTextareaField name="comment" placeholder="Комментарий" className={styles.checkoutBlock__input} />
+                            </div>
+                        </div>
+                        <div className={styles.checkoutBlock__section}>
+                            <div className={styles.checkoutBlock__section_container}>
+                                <p className={styles.checkoutBlock__section_title}>Метод оплаты</p>
+                                <Switcher data={paymentTypes} type="default" name="payment_type" />
+                            </div>
+                        </div>
+                        <div className={styles.checkoutBlock__section}>
+                            <div className={styles.checkoutBlock__section_container}>
+                                <div className={styles.checkoutBlock__btns}>
+                                    <div className={styles.checkoutBlock__btn}>
+                                        <BackButton onClick={setPrev} />
+                                    </div>
+                                    <div className={styles.checkoutBlock__btn}>
+                                        <ActionButton text="Оплатить" onClick={() => null} type="medium-blue" inForm />
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </Form>
+                    </Form>
+                )}
             </Formik>
         </div>
     )

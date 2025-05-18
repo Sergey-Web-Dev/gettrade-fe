@@ -1,6 +1,7 @@
 import { FC } from "react";
 import styles from './switcher.module.scss';
 import Image from "next/image";
+import { useField } from "formik";
 
 interface ISwitcherData {
     id: number;
@@ -13,21 +14,24 @@ interface ISwitcherData {
 
 interface ISwitcher {
     data: ISwitcherData[];
-    active: any;
     type: 'default' | 'multi'
-    onClickFn: (switchItem: any) => void;
+    name: string;
 }
 
-const Switcher: FC<ISwitcher> = ({ data, active, type, onClickFn }) => {
+const Switcher: FC<ISwitcher> = ({ data, type, name }) => {
+
+    const [field, meta, helpers] = useField(name);
+    const { setValue } = helpers;
+
     return (
         <ul className={styles.switcher}>
             {data && data.map((switchItem) => (
                 <li
                     key={switchItem.id}
-                    onClick={() => onClickFn(switchItem)}
-                    className={active.id === switchItem.id ? styles.switcher__switch_active : styles.switcher__switch}
+                    onClick={() => setValue(switchItem)}
+                    className={field.value.id === switchItem.id ? styles.switcher__switch_active : styles.switcher__switch}
                 >
-                    <input type="radio" checked={active.id === switchItem.id} readOnly />
+                    <input type="radio" checked={field.value.id === switchItem.id} readOnly />
                     {switchItem.img ? <Image src={switchItem.img} alt='' width={24} height={24} /> : null}
                     <div className={styles.switcher__content}>
                         {type === 'default' ? (
