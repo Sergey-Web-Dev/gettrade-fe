@@ -7,7 +7,7 @@ interface IPagesNavigation {
 
 const PagesNavigation: FC<IPagesNavigation> = ({ navigationData }) => {
     return (
-        <ul className={styles.pagesNavigation}>
+        <ul className={`container ${styles.pagesNavigation}`}>
             {navigationData && navigationData.map((navigationItem: { id: number, title: string}) => (
                 <li key={navigationItem.id} className={styles.pagesNavigation__item}>
                     <span className={styles.pagesNavigation__item_slash}>/</span> <span>{navigationItem.title}</span>

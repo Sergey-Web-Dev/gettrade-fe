@@ -10,9 +10,9 @@ import CatalogNavMenu from "../catalog-menu/CatalogMenu";
 import { useClickOutsideAndClose } from "@/hooks/useClickOutside";
 
 const headerButtons = [
-  { imgSrc: '/favourites-icon.svg', text: 'Избранное' },
-  { imgSrc: '/cart-icon.svg', text: 'Корзина' },
-  { imgSrc: '/login-icon.svg', text: 'Войти' }
+  { imgSrc: '/favourites-icon.svg', text: 'Избранное', href: '/cart' },
+  { imgSrc: '/cart-icon.svg', text: 'Корзина', href: '/cart' },
+  { imgSrc: '/login-icon.svg', text: 'Войти' , href: '/cart'}
 ]
 
 const Header = () => {
@@ -34,7 +34,7 @@ const Header = () => {
           <MenuButton isMenuActive={isMenuActive} onChangeMenuVisible={handleChangeMenuVisible} />
           <SearchBar />
           <div className={styles.header__nav__buttons}>
-            {headerButtons.map(({ imgSrc, text }, index) => <HeaderButton key={index} imgSrc={imgSrc} text={text} />)}
+            {headerButtons.map(({ imgSrc, text, href }, index) => <HeaderButton key={index} imgSrc={imgSrc} text={text} href={href} />)}
           </div>
         </div>
       </div>
