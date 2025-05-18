@@ -383,8 +383,8 @@ export const cartItems = [
         originalPrice: 1999,
         discountedPrice: 1599,
         discount: 15,
-
-        availability: 15
+        availability: 15,
+        bonus: 5
     },
     {
         id: 1,
@@ -394,7 +394,8 @@ export const cartItems = [
         originalPrice: 1999,
         discountedPrice: 1599,
         discount: 15,
-        availability: 15
+        availability: 15,
+        bonus: 5
     },
     {
         id: 2,
@@ -404,7 +405,8 @@ export const cartItems = [
         originalPrice: 1999,
         discountedPrice: 1599,
         discount: 15,
-        availability: 15
+        availability: 15,
+        bonus: 5
     },
     {
         id: 3,
@@ -414,7 +416,8 @@ export const cartItems = [
         originalPrice: 1999,
         discountedPrice: 1599,
         discount: 15,
-        availability: 15
+        availability: 15,
+        bonus: 5
     },
     {
         id: 4,
@@ -424,7 +427,8 @@ export const cartItems = [
         originalPrice: 1999,
         discountedPrice: 1599,
         discount: 15,
-        availability: 15
+        availability: 15,
+        bonus: 5
     },
     {
         id: 5,
@@ -434,7 +438,8 @@ export const cartItems = [
         originalPrice: 1999,
         discountedPrice: 1599,
         discount: 15,
-        availability: 15
+        availability: '',
+        bonus: 5
     },
     {
         id: 6,
@@ -444,6 +449,7 @@ export const cartItems = [
         originalPrice: 1999,
         discountedPrice: 1599,
         discount: 15,
-        availability: 15
+        availability: '',
+        bonus: 5
     },
 ]

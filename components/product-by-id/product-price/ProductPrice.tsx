@@ -2,6 +2,7 @@ import { FC } from "react"
 import styles from './product-price.module.scss';
 import Image from "next/image";
 import ActionButton from "@/components/action-button/ActionButton";
+import {useStore} from "@/app/stores/useStore";
 
 interface IProductPrice {
     originalPrice: number;
@@ -13,6 +14,8 @@ interface IProductPrice {
 }
 
 const ProductPrice: FC<IProductPrice> = ({ originalPrice, discountedPrice, discont, isFavorite, bonuses, availability }) => {
+    const setCartItems = useStore((state) => state.setCartItems);
+
     return (
         <div className={styles.productPrice}>
             <div className={styles.productPrice__priceAndFavorite}>

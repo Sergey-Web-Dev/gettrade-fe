@@ -9,12 +9,9 @@ interface SectionProps {
 const Section: FC<SectionProps> = ({ title, stylesName }) => {
 
     return (
-        <main className={`container`}>
             <div className={styles[stylesName]}>
                 <h2 className={`h2-header`}>{title}</h2>
             </div>
-
-        </main>
     )
 }
 
