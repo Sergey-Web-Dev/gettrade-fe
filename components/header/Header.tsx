@@ -33,14 +33,18 @@ const Header = () => {
       <div style={{ backgroundColor: 'black', width: '100%'}}>
 
           <div className={'container'}  style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center',  padding: '1rem 1rem'}}>
-        <div  style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center' , color: 'white', gap: '0.5rem'}}>
+        <div  style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center' , color: 'white', gap: '1rem'}}>
           <Image src='/room.svg' alt={'room.svg'} width={20} height={20} />
           <h4>Москва</h4>
         </div>
 
 
           <nav style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '2rem', color: '#8C8C8C'}}>
-            <Link href="/">Акции</Link>
+
+            <Link  style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: "0.5rem"}} href="/">
+                <Image src='/whatshot.svg' alt={'whatshot.svg'} width={20} height={20} />
+                <p>Акции</p>
+             </Link>
             <Link href="/">Статьи</Link>
             <Link href="/">Услуги</Link>
             <Link href="/">Доставка и оплата</Link>
