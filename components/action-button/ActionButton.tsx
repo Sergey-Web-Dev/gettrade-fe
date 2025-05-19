@@ -7,10 +7,11 @@ interface IActionButton {
   text: string,
   type: 'small-blue' | 'medium-blue' | 'small-grey' | 'medium-grey'
   onClick: () => void,
+  inForm?: boolean
 }
 
 
-const ActionButton: FC<IActionButton> = ({ text, type, onClick }) => {
+const ActionButton: FC<IActionButton> = ({ text, type, onClick, inForm = false }) => {
 
   const buttonClass = cn({
     [styles['small-blue-action-button']]: type === 'small-blue',
@@ -20,7 +21,7 @@ const ActionButton: FC<IActionButton> = ({ text, type, onClick }) => {
   });
 
   return (
-    <button className={buttonClass} onClick={onClick}>
+    <button className={buttonClass} onClick={onClick} type={inForm ? 'submit' : 'button'}>
       {text}
     </button>
   )

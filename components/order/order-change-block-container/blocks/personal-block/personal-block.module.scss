@@ -1,0 +1,39 @@
+.personalBlock {
+    &__section {
+        margin-bottom: 32px;
+        display: flex;
+        justify-content: start;
+        align-items: start;
+    }
+
+    &__section_title {
+        font-weight: 500;
+        font-size: 18px;
+        max-width: 327px;
+        width: 100%;
+    }
+
+    &__types {
+        display: flex;
+        gap: 20px;
+    }
+
+    &__type, &__type_active {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+        background-color: #fff;
+        border-radius: 6px;
+        padding: 16px;
+        cursor: pointer;
+    }
+
+    &__type_active {
+        background-color: #DCEBFE;
+    }
+
+    &__type_title {
+        font-size: 18px;
+    }
+}

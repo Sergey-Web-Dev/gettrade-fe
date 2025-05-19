@@ -47,7 +47,7 @@ const GallerySlider: FC<IGallerySlider> = ({ gallery }) => {
             >
                 {gallery && gallery.map((photo: { id: number, img: string }) => (
                     <SwiperSlide className={styles.gallerySwiper__vertical_slide} key={photo.id}>
-                        <img src={photo.img} /> {/* //Заменить на Image Next когда появятся бек картинки */}
+                        <Image src={photo.img} alt="" width={0} height={0} sizes="100%" />
                     </SwiperSlide>
                 ))}
             </Swiper>
@@ -61,7 +61,7 @@ const GallerySlider: FC<IGallerySlider> = ({ gallery }) => {
                 >
                     {gallery && gallery.map((photo: { id: number, img: string }) => (
                         <SwiperSlide className={styles.gallerySwiper__horizontal_slide} key={photo.id}>
-                            <img src={photo.img} /> {/* //Заменить на Image Next когда появятся бек картинки */}
+                            <Image src={photo.img} alt="" width={0} height={0} sizes="100%" />
                         </SwiperSlide>
                     ))}
                 </Swiper>
