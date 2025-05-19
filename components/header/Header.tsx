@@ -55,16 +55,19 @@ const Header = () => {
           </nav>
       </div>
       </div>
-      <div style={{padding: '0 1rem 0 1rem'}} className={`container ${styles.header}`}>
-        <Image onClick={() => redirect('/')} style={{cursor: 'pointer'}} src='/header-logo.svg' width={230} height={56} alt="Логотип GetTrade" />
-        <div className={styles.header__nav}>
-          <MenuButton isMenuActive={isMenuActive} onChangeMenuVisible={handleChangeMenuVisible} />
-          <SearchBar />
-          <div className={styles.header__nav__buttons}>
-            {headerButtons.map(({ imgSrc, text, href }, index) => <HeaderButton key={index} imgSrc={imgSrc} text={text} href={href} />)}
+      <div style={{ position: 'relative' }}>
+        <div style={{padding: '0 1rem 0 1rem'}} className={`container ${styles.header}`}>
+          <Image onClick={() => redirect('/')} style={{cursor: 'pointer'}} src='/header-logo.svg' width={230} height={56} alt="Логотип GetTrade" />
+          <div className={styles.header__nav}>
+            <MenuButton isMenuActive={isMenuActive} onChangeMenuVisible={handleChangeMenuVisible} />
+            <SearchBar />
+            <div className={styles.header__nav__buttons}>
+              {headerButtons.map(({ imgSrc, text, href }, index) => <HeaderButton key={index} imgSrc={imgSrc} text={text} href={href} />)}
+            </div>
           </div>
         </div>
       </div>
+
       {isMenuActive ? <CatalogNavMenu /> : null}
     </header>
   )
