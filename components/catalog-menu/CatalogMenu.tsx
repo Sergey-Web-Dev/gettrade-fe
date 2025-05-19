@@ -8,7 +8,6 @@ import BannerCard from "@/components/banner-card/BannerCard";
 
 interface ICatalogNavMenuProps {}
 
-
 const BANNERS: Banner[] = [
     {id: 1, title: 'Гарнитура Cooler Master CH331 USB', imgSrc: '/img_for_banner.png'},
     {id: 2, title: 'Гарнитура Cooler Master CH331 USB', imgSrc: '/img_for_banner.png'},

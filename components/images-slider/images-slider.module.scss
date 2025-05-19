@@ -1,3 +1,19 @@
+.prevEl, .nextEl {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+}
+
+.prevEl {
+  left: 24px;
+}
+
+.nextEl {
+  right: 24px;
+}
+
+
 .pagination {
   z-index: 100;
   position: absolute;

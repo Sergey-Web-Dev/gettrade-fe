@@ -7,7 +7,7 @@ interface IBrandItemProps {
 
 const BrandItem: FC<IBrandItemProps> = ({ imgSrc }) => {
   return (
-    <Image src={imgSrc} width={250} height={134} alt="" />
+    <Image style={{objectFit: 'cover'}} src={imgSrc} width={250} height={134} alt="" />
   )
 }
 
