@@ -5,6 +5,7 @@ import totalStyle from "./total.module.scss";
 import titleStyle from "./orderItem.module.scss";
 import ActionButton from "@/components/action-button/ActionButton";
 import {CartItem} from "@/app/stores/useStore";
+import {redirect} from "next/navigation";
 
 interface IProductPrice {
     originalPrice: number;
@@ -73,7 +74,7 @@ export const TotalModule: FC<TotalModuleProps> = ({items}) => {
                         />
                 <p className={styles.productPrice__availability_text}>Я прочитал и согласен с условиями  <span style={{color:'blue', textDecoration: 'underline', cursor: 'pointer'}}>публичной оферты</span></p>
             </div>
-            <ActionButton text="ЗАКАЗАТЬ" onClick={() => null} type="medium-blue" />
+            <ActionButton text="ЗАКАЗАТЬ" onClick={() => redirect(`/order`)} type="medium-blue" />
         </div>
     )
 }

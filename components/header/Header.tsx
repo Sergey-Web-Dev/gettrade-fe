@@ -8,6 +8,7 @@ import HeaderButton from "../header-button/HeaderButton";
 import { useRef, useState } from "react";
 import CatalogNavMenu from "../catalog-menu/CatalogMenu";
 import { useClickOutsideAndClose } from "@/hooks/useClickOutside";
+import {redirect} from "next/navigation";
 
 const headerButtons = [
   { imgSrc: '/favourites-icon.svg', text: 'Избранное', href: '/cart' },
@@ -17,10 +18,8 @@ const headerButtons = [
 
 const Header = () => {
 
-  const catalogNavMenuRef = useRef(null);
   const [isMenuActive, setIsMenuActive] = useState<boolean>(false);
 
-  useClickOutsideAndClose(catalogNavMenuRef, () => setIsMenuActive(false));
 
   const handleChangeMenuVisible = () => {
     setIsMenuActive((prev: boolean) => !prev);
@@ -29,7 +28,7 @@ const Header = () => {
   return (
     <header style={{ borderBottom: '1px solid rgba(209, 209, 209, 1)', position: 'sticky', top: 0, zIndex: 100, backgroundColor: '#fff' }}>
       <div className={`container ${styles.header}`}>
-        <Image src='/header-logo.svg' width={230} height={56} alt="Логотип GetTrade" />
+        <Image onClick={() => redirect('/')} style={{cursor: 'pointer'}} src='/header-logo.svg' width={230} height={56} alt="Логотип GetTrade" />
         <div className={styles.header__nav}>
           <MenuButton isMenuActive={isMenuActive} onChangeMenuVisible={handleChangeMenuVisible} />
           <SearchBar />
@@ -38,7 +37,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-      {isMenuActive ? <div ref={catalogNavMenuRef}><CatalogNavMenu /></div> : null}
+      {isMenuActive ? <CatalogNavMenu /> : null}
     </header>
   )
 }

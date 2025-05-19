@@ -1,11 +1,19 @@
-.catalogMenu {
+
+.wrapper {
     position: fixed;
     top: 105px;
     left: 0;
+    height: 100%;
+    width: 100vw;
+    z-index: 2;
     background-color: #fff;
+    display: flex;
+    flex-direction: row;
+}
+
+.catalogMenu {
     height: 100%;
     width: 78vw;
-    z-index: 2;
     border-right: 1px solid #D1D1D1;
 
     &__container {
@@ -15,5 +23,13 @@
         align-items: start;
         padding-left: 120px;
     }
+}
 
+.banner {
+    width: 22vw;
+    overflow-y: scroll;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
