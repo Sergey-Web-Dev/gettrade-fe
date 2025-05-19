@@ -16,14 +16,14 @@ export default function Home() {
 
   return (
     <>
-        <div className={` ${styles.product__navigation}`}>
+        <div  className={` ${styles.product__navigation}`}>
             <PagesNavigation navigationData={[ { id: 0, title: 'главная' }, { id: 1, title: 'Корзина' } ]} />
         </div>
 
-        <div  style={{display: "flex"}}>
+        <div className={'container '} style={{display: "flex", justifyContent: "end"}}>
 
-        <div className={`container ${cartItemsStyles.cartItems}`} style={{borderRight: '1px solid var(--border)'}}>
-            <div style={{display: "flex", justifyContent: "space-between", alignItems: "baseline"}}>
+        <div className={`addPad ${cartItemsStyles.cartItems}`} style={{borderRight: '1px solid var(--border)', width: '75%'}}>
+            <div  style={{display: "flex", justifyContent: "space-between", alignItems: "baseline"}}>
 
                 <Section title={'Корзина'} stylesName={'cart'}/>
                 <div style={{display: "flex", justifyContent: "space-between", alignItems: "center", gap: '2rem'}}>
@@ -69,7 +69,7 @@ export default function Home() {
 
 
         </div>
-            <div  style={{display: "flex", flexDirection: 'column', width: "35%", marginTop: '2rem'}}>
+            <div  className={'container'} style={{display: "flex", flexDirection: 'column', width: "25%", margin: '5rem 1rem 0 1rem'}}>
                 <Section title={'Итого'} stylesName={'total'}/>
             <TotalModule items={orders || []} />
             </div>
