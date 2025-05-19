@@ -25,6 +25,8 @@ const Header = () => {
     setIsMenuActive((prev: boolean) => !prev);
   };
 
+  console.log('222')
+
   return (
     <header style={{ borderBottom: '1px solid rgba(209, 209, 209, 1)', position: 'sticky', top: 0, zIndex: 100, backgroundColor: '#fff' }}>
       <div className={`container ${styles.header}`}>
