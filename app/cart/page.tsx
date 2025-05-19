@@ -6,16 +6,13 @@ import styles from "@/app/catalog/[product]/page.module.scss";
 import cartItemsStyles from "./scss/cartItems.module.scss";
 import PagesNavigation from "@/components/pages-navigation/PagesNavigation";
 import {OrderItem} from "@/components/cart/OrderItem";
-import {cartItems} from "@/lib/constants";
 import {TotalModule} from "@/components/cart/TotalModule";
 import Image from "next/image";
-import {useStore} from "@/app/stores/useStore";
+import {CartItem, useStore} from "@/app/stores/useStore";
 
 export default function Home() {
     const orders = useStore((state) => state.cartItems);
     const setCartItems = useStore((state) => state.setCartItems);
-
-    console.log(orders, 'ajhahjahj');
 
   return (
     <>
@@ -31,29 +28,43 @@ export default function Home() {
                 <Section title={'Корзина'} stylesName={'cart'}/>
                 <div style={{display: "flex", justifyContent: "space-between", alignItems: "center", gap: '2rem'}}>
                     <div style={{display: "flex", justifyContent: "space-between", gap: '1rem', marginBottom: '1rem'}}>
-                        <input  style={{ transform: 'scale(1.5)', cursor: 'pointer' }}
-                                type='checkbox'
+                        <input
+                            style={{ transform: 'scale(1.5)', cursor: 'pointer' }}
+                            type="checkbox"
+                            onClick={() =>
+                                setCartItems(
+                                    (orders || []).map((item: CartItem) => ({
+                                        ...item,
+                                        isChecked: !item.isChecked,
+                                    }))
+                                )
+                            }
                         />
                         <p className={styles.productPrice__availability_text}>Выбрать все</p>
                     </div>
 
-                    <div style={{display: "flex", justifyContent: "space-between", alignItems:"center", gap: '0.5rem', marginBottom: '1rem', cursor: 'pointer'}}>
+                    <div >
+                        <button style={{display: "flex", justifyContent: "space-between", alignItems:"center", gap: '0.5rem', marginBottom: '1rem', cursor: 'pointer'}} type={'button'} onClick={() => {setCartItems(
+                            (orders || []).filter((item: CartItem) => !item.isChecked),
+                        )}}>
+
                         <Image src={'clear.svg'} alt={'clear.svg'} width={25} height={25} />
                         <p className={styles.productPrice__availability_text}>Удалить выбранное</p>
+                        </button>
                     </div>
                 </div>
 
             </div>
 
-            {cartItems.map(({ id,
+            {orders && orders.map(({ id,
                                   title,
                                   imgSrc,
                                 article,
                                   originalPrice,
                                   discountedPrice,
-                                  discount, availability }) => (
+                                  discount, availability, isChecked }: any) => (
 
-            <OrderItem key={id} image={imgSrc} title={title} discont={discount} discountedPrice={discountedPrice}  originalPrice={originalPrice} article={article} availability={availability}/>
+            <OrderItem key={id} id={id} image={imgSrc} title={title} discont={discount} discountedPrice={discountedPrice}  originalPrice={originalPrice} article={article} availability={availability} isChecked={isChecked} orders={orders || []} setOrders={setCartItems}/>
             ))}
 
 

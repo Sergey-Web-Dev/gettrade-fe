@@ -197,7 +197,6 @@ const mockNavData = [
 
 export default function ProductByID() {
 
-    const { product } = useParams(); /* извлекаем id и получаем товар */
 
     return (
         <div className={styles.product}>

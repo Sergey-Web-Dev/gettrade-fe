@@ -1,6 +1,6 @@
 import { create } from 'zustand'
-import zukeeper from 'zukeeper';
 import {cartItems} from "@/lib/constants";
+import {persist} from "zustand/middleware";
 
 export interface CartItem {
     id: number;
@@ -12,19 +12,24 @@ export interface CartItem {
     discount: number;
     availability: number | '';
     bonus: number;
+    count: number;
+    isChecked: boolean;
 }
 
-export interface cartItems {
-    cartItems: CartItem[] | undefined;
-    setCartItems: (data: string) => void;
+export interface cartItemsType {
+    cartItems: any | undefined;
+    setCartItems: (orders: CartItem[]) => void;
 }
 
+export const useStore = create<cartItemsType>()(
+    persist(
+        (set) => ({
+            cartItems: cartItems,
+            setCartItems: (items) => set({ cartItems: items }),
+        }),
+        {
+            name: 'cart-storage',
 
-
-
-export const useStore = create<cartItems>()(
-    zukeeper((set: any) => ({
-        cartItems: cartItems,
-        setCartItems: (item: Partial<CartItem>) => set({ cartItems: item }),
-    })),
-);
+        }
+    )
+)

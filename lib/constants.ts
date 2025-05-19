@@ -192,7 +192,15 @@ export const bestsellers: Product[] = [
 ]
 
 export const mockData = {
+    id: 7,
     title: 'Beyerdynamic DT 990 PRO 250 ohms',
+    article: 'А066242',
+    imgSrc: '/headphones1.jpg',
+    discount: 15,
+    availability: 15,
+    isChecked: false,
+    bonus: 5,
+    count: 1,
     gallery: [
         { id: 0, img: 'https://swiperjs.com/demos/images/nature-1.jpg' },
         { id: 1, img: 'https://swiperjs.com/demos/images/nature-2.jpg' },
@@ -208,7 +216,6 @@ export const mockData = {
     articul: '21837',
     isFavorite: false,
     bonuses: 339,
-    availability: 15,
     brand: { id: 0, imgSrc: '/test-brand.jpg' },
     characteristics: [
         { id: 0, title: 'Длина кабеля:', value: '3м' },
@@ -384,7 +391,9 @@ export const cartItems = [
         discountedPrice: 1599,
         discount: 15,
         availability: 15,
-        bonus: 5
+        isChecked: false,
+        bonus: 5,
+        count: 1
     },
     {
         id: 1,
@@ -395,7 +404,9 @@ export const cartItems = [
         discountedPrice: 1599,
         discount: 15,
         availability: 15,
-        bonus: 5
+        isChecked: false,
+        bonus: 5,
+        count: 1
     },
     {
         id: 2,
@@ -406,7 +417,9 @@ export const cartItems = [
         discountedPrice: 1599,
         discount: 15,
         availability: 15,
-        bonus: 5
+        isChecked: false,
+        bonus: 5,
+        count: 1
     },
     {
         id: 3,
@@ -417,7 +430,9 @@ export const cartItems = [
         discountedPrice: 1599,
         discount: 15,
         availability: 15,
-        bonus: 5
+        isChecked: false,
+        bonus: 5,
+        count: 1
     },
     {
         id: 4,
@@ -428,7 +443,9 @@ export const cartItems = [
         discountedPrice: 1599,
         discount: 15,
         availability: 15,
-        bonus: 5
+        isChecked: false,
+        bonus: 5,
+        count: 1
     },
     {
         id: 5,
@@ -439,7 +456,9 @@ export const cartItems = [
         discountedPrice: 1599,
         discount: 15,
         availability: '',
-        bonus: 5
+        isChecked: 1,
+        bonus: 5,
+        count: 0
     },
     {
         id: 6,
@@ -450,6 +469,8 @@ export const cartItems = [
         discountedPrice: 1599,
         discount: 15,
         availability: '',
-        bonus: 5
+        isChecked: 1,
+        bonus: 5,
+        count: 0
     },
 ]

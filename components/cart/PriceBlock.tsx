@@ -15,7 +15,7 @@ const PriceBlock: FC<PriceProps> = ({ count, discont, discountedPrice, originalP
         <div className={childClassName}>
             <div className={`${styles.productPrice__discountPrice} ${parentClassName}`}>
                 <span className={styles.productPrice__discount}>-{discont}%</span>
-                <p>{discountedPrice * count} ₽</p>
+                <p>{discountedPrice} ₽</p>
             </div>
             <p className={styles.productPrice__originalPrice}>{originalPrice} ₽</p>
         </div>
