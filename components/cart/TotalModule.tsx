@@ -62,8 +62,10 @@ export const TotalModule: FC<TotalModuleProps> = ({items}) => {
                         <p className={styles.productMainInfo__title}>{characteristic.title}</p>
                         <p style={
                             characteristic.id === 3
-                                ? { color: 'red' }
-                                : { color: 'black' }
+                                ? { color: 'red', whiteSpace: 'nowrap' }
+                                : { color: 'black', whiteSpace: 'nowrap', display: 'flex', alignItems: 'center' }
+
+
                         } className={styles.productMainInfo__value}>{characteristic.value}  {characteristic.id === 4 && (
                             <span
                                 style={{
@@ -85,8 +87,8 @@ export const TotalModule: FC<TotalModuleProps> = ({items}) => {
             <div style={{display: "flex", justifyContent: "space-between", gap: '1rem', marginBottom: '1rem'}}>
                 <input  style={{ transform: 'scale(1.5)', cursor: 'pointer' }}
                          type='checkbox'
-                        />
-                <p className={styles.productPrice__availability_text}>Я прочитал и согласен с условиями  <span style={{color:'blue', textDecoration: 'underline', cursor: 'pointer'}}>публичной оферты</span></p>
+                />
+                <p style={{fontSize: '14px', color: '#8C8C8C'}} className={styles.productPrice__availability_text}>Я прочитал и согласен с условиями  <span style={{color:'#1378F5', textDecoration: 'underline', cursor: 'pointer'}}>публичной оферты</span></p>
             </div>
             <ActionButton text="ЗАКАЗАТЬ" onClick={() => redirect(`/order`)} type="medium-blue" />
         </div>
