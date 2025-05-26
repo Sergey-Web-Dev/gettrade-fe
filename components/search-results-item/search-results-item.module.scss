@@ -1,0 +1,24 @@
+.search-results-item {
+  display: flex;
+  padding: 8px 18px;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 16px;
+
+  &__left {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    div {
+      position: relative;
+      .overlaying-text {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 10;
+        color: #000;
+      }
+    }
+  }
+}
