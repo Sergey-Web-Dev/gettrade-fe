@@ -29,9 +29,36 @@ const SearchBar = () => {
     <input onFocus={() => setIsFocused(true)} onBlur={() => setIsFocused(false)} className={styles['search-bar']} type='text' placeholder="Поиск" onChange={handleChange} />
     {isFocused && <SearchResults searchString={searchString} suggestions={filteredSuggestions} />}
     <div className={styles['search__buttons']}>
-      {isFocused && <button className={styles['search__buttons__close']}><Image src='/searchbar-cross.svg' width={12} height={12} alt='' /></button>}
+      {isFocused && <button className={styles['search__buttons__btn']}>
+        <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" fill="currentColor"
+            d="M11.7338 0.275313C11.3788 -0.0796359 10.8055 -0.0796359 10.4505 0.275313L6 4.71672L1.54949 0.266212C1.19454 -0.0887372 0.62116 -0.0887372 0.266212 0.266212C-0.0887372 0.62116 -0.0887372 1.19454 0.266212 1.54949L4.71672 6L0.266212 10.4505C-0.0887372 10.8055 -0.0887372 11.3788 0.266212 11.7338C0.62116 12.0887 1.19454 12.0887 1.54949 11.7338L6 7.28328L10.4505 11.7338C10.8055 12.0887 11.3788 12.0887 11.7338 11.7338C12.0887 11.3788 12.0887 10.8055 11.7338 10.4505L7.28328 6L11.7338 1.54949C12.0796 1.20364 12.0796 0.62116 11.7338 0.275313Z" />
+        </svg>
+      </button>}
       {isFocused && <div className={styles['search__buttons__separator']}></div>}
-      <button className={styles['search__buttons__mic']}><Image src='/mic.svg' width={21.33} height={21.33} alt='' /></button>
+      <button className={styles['search__buttons__btn']}>
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g clip-path="url(#clip0_1615_3264)">
+            <path
+              d="M14.8303 4.41162C14.8303 2.15934 13.005 0.333496 10.7532 0.333496C8.50153 0.333496 6.67615 2.15934 6.67615 4.41162V8.74348C6.67615 10.9958 8.50153 12.8216 10.7532 12.8216C13.005 12.8216 14.8303 10.9958 14.8303 8.74348V4.41162Z"
+              fill="currentColor" />
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M17.0945 10.3407C17.518 10.509 17.725 10.9887 17.5567 11.4122C16.4831 14.1148 13.843 16.0294 10.7521 16.0294C7.66086 16.0294 5.02334 14.1144 3.94777 11.4128C3.77922 10.9894 3.9858 10.5095 4.40918 10.341C4.83256 10.1724 5.31242 10.379 5.48097 10.8024C6.31555 12.8987 8.36055 14.3791 10.7521 14.3791C13.1442 14.3791 15.1907 12.8984 16.0231 10.8029C16.1913 10.3794 16.671 10.1725 17.0945 10.3407Z"
+              fill="currentColor" />
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M10.7543 14.3789C11.21 14.3789 11.5794 14.7483 11.5794 15.204V20.8416C11.5794 21.2973 11.21 21.6667 10.7543 21.6667C10.2986 21.6667 9.9292 21.2973 9.9292 20.8416V15.204C9.9292 14.7483 10.2986 14.3789 10.7543 14.3789Z"
+              fill="currentColor" />
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M5.85083 20.8417C5.85083 20.386 6.22025 20.0166 6.67594 20.0166H14.8301C15.2858 20.0166 15.6553 20.386 15.6553 20.8417C15.6553 21.2974 15.2858 21.6668 14.8301 21.6668H6.67594C6.22025 21.6668 5.85083 21.2974 5.85083 20.8417Z"
+              fill="currentColor" />
+          </g>
+          <defs>
+            <clipPath id="clip0_1615_3264">
+              <rect width="21.3333" height="21.3333" fill="white" transform="translate(0.333374 0.333496)" />
+            </clipPath>
+          </defs>
+        </svg>
+      </button>
     </div>
   </div>)
 }
