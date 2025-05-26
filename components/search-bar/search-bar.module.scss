@@ -39,12 +39,19 @@
       background-color: rgba(209, 209, 209, 1);
     }
 
-    &__close {
-      padding: 18px;
+    &__btn {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 6px;
+      color: rgba(209, 209, 209, 1);
     }
 
-    &__mic {
-      padding: 13.33px;
+    &__btn:hover {
+      background-color: rgba(244, 244, 244, 1);
+      color: rgba(19, 120, 245, 1);
     }
   }
 }
