@@ -27,7 +27,7 @@ const ImagesSlider: FC<IImagesSliderProps> = ({ images, width, height }) => {
 
   return (
     <Swiper
-      style={{ width, height, position: 'relative' }}
+      style={{ width, height, position: 'relative', borderRadius: '12px' }}
       modules={[Navigation, Pagination, Autoplay]}
       loop
       autoplay
@@ -48,7 +48,7 @@ const ImagesSlider: FC<IImagesSliderProps> = ({ images, width, height }) => {
         swiper.navigation.update();
       }}
     >
-      {images.map(({ imgSrc, link }, index) => <SwiperSlide key={index}><ImagesSliderItem imgSrc={imgSrc} link={link} /></SwiperSlide>)}
+      {images.map(({ imgSrc, link, description }, index) => <SwiperSlide key={index}><ImagesSliderItem imgSrc={imgSrc} link={link} description={description} /></SwiperSlide>)}
       <button ref={prevRef} className={styles.prevEl}>
         <Image src='/arrow-prev.svg' width={48} height={48} alt='' />
       </button>
