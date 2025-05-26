@@ -1,5 +1,6 @@
 import Image from "next/image"
 import { FC } from "react"
+import styles from './brand-item.module.scss';
 
 interface IBrandItemProps {
   imgSrc: string
@@ -7,7 +8,7 @@ interface IBrandItemProps {
 
 const BrandItem: FC<IBrandItemProps> = ({ imgSrc }) => {
   return (
-    <Image style={{objectFit: 'cover'}} src={imgSrc} width={250} height={134} alt="" />
+    <Image className={styles['brand__image']} style={{objectFit: 'cover'}} src={imgSrc} width={250} height={134} alt="" />
   )
 }
 

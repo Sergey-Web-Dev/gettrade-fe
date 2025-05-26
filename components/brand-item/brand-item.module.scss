@@ -1,0 +1,11 @@
+.brand {
+  &__image {
+
+    cursor: pointer;
+    filter: brightness(0) saturate(100%) invert(67%) sepia(0%) saturate(1065%) hue-rotate(261deg) brightness(85%) contrast(68%);
+
+    &:hover {
+      filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(7457%) hue-rotate(268deg) brightness(90%) contrast(101%);
+    }
+  }
+}
