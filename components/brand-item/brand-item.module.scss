@@ -1,6 +1,7 @@
 .brand {
   &__image {
 
+    transition: .2s ease-out;
     cursor: pointer;
     filter: brightness(0) saturate(100%) invert(67%) sepia(0%) saturate(1065%) hue-rotate(261deg) brightness(85%) contrast(68%);
 

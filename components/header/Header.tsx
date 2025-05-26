@@ -12,7 +12,7 @@ import {redirect} from "next/navigation";
 import Link from "next/link";
 
 const headerButtons = [
-  { imgSrc: '/favourites-icon.svg', text: 'Избранное', href: '/cart' },
+  { imgSrc: '/favorite_filled.png', text: 'Избранное', href: '/cart' },
   { imgSrc: '/cart-icon.svg', text: 'Корзина', href: '/cart' },
   { imgSrc: '/login-icon.svg', text: 'Войти' , href: '/cart'}
 ]
@@ -41,17 +41,17 @@ const Header = () => {
 
           <nav style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '2rem', color: '#8C8C8C'}}>
 
-            <Link  style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: "0.5rem"}} href="/">
-                <Image src='/whatshot.svg' alt={'whatshot.svg'} width={20} height={20} />
+            <Link className={styles['pre_header__link']}  style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: "0.5rem"}} href="/">
+                <Image  className={styles['pre_header__link_img']} src='/whatshot.svg' alt={'whatshot.svg'} width={20} height={20} />
                 <p>Акции</p>
              </Link>
-            <Link href="/">Статьи</Link>
-            <Link href="/">Услуги</Link>
-            <Link href="/">Доставка и оплата</Link>
-            <Link href="/">Обмен и возврат</Link>
-            <Link href="/">Гарантии</Link>
-            <Link href="/">О нас</Link>
-            <Link href="/">Контакты</Link>
+            <Link  className={styles['pre_header__link']} href="/">Статьи</Link>
+            <Link className={styles['pre_header__link']} href="/">Услуги</Link>
+            <Link className={styles['pre_header__link']}  href="/">Доставка и оплата</Link>
+            <Link className={styles['pre_header__link']} href="/">Обмен и возврат</Link>
+            <Link className={styles['pre_header__link']} href="/">Гарантии</Link>
+            <Link className={styles['pre_header__link']} href="/">О нас</Link>
+            <Link className={styles['pre_header__link']} href="/">Контакты</Link>
           </nav>
       </div>
       </div>
