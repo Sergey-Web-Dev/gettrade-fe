@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
         return [
             {
                 source: "/api/:path*",
-                destination: "http://localhost:3000/:path*",
+                destination: "https://music-shop-dueo.onrender.com/:path*",
             },
         ];
     },

@@ -644,7 +644,7 @@ components:
           format: binary
         updatedAt:
           type: string
-          default: 2025-05-27T11:56:30.024Z
+          default: 2025-05-27T12:35:02.809Z
       required:
         - firstName
         - lastName

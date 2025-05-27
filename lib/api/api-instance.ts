@@ -1,7 +1,7 @@
 import axios, { AxiosError, AxiosRequestConfig } from "axios";
 
 export const apiInstance = axios.create({
-    baseURL: "http://localhost:3000",
+    baseURL: "https://music-shop-dueo.onrender.com",
     headers: {
         "Content-Type": "application/json",
     },
