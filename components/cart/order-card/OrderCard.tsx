@@ -4,21 +4,21 @@ import React, {FC, useState} from "react";
 import Image from "next/image";
 import PriceBlock from "@/components/cart/price-block/PriceBlock";
 import styles from './order-card.module.scss';
-import {CartItem} from "@/app/stores/useStore";
 import IconButton from "@/components/buttons/icon-button/IconButton";
+import {useAddProtuctOrderItem} from "@/features/orderItem/model/use-add-protuct-orderItem";
+import {useRemoveProtuctOrderItem} from "@/features/orderItem/model/use-remove-protuct-orderItem";
+import {useRemoveFromCart} from "@/features/orderItem/model/use-remove-from-cart";
 
 export type OrderItemProps = {
-    id: number;
+    id: string;
     image: string;
-    orders: CartItem[];
-    setOrders: (orders: CartItem[]) => void;
-    title?: string;
-    article?: string;
-    availability?: number | string;
-    isChecked?: boolean;
-    discont?: number;
-    discountedPrice?: number;
-    originalPrice?: number;
+    title: string;
+    article: string;
+    availability: number | string;
+    quantity: number;
+    isChecked: boolean;
+    discont: number;
+    originalPrice: number;
 };
 
 export const OrderItem: FC<OrderItemProps> = ({
@@ -27,35 +27,30 @@ export const OrderItem: FC<OrderItemProps> = ({
     title,
     article,
     availability,
-    isChecked,
+                                                  quantity,
     discont,
-    discountedPrice,
     originalPrice,
-    orders, 
-    setOrders
 }) => {
-    const [count, setCount] = useState(1);
     const [isActive, setIsActive] = useState(false);
+    const [isChecked, setisChecked] = useState(false);
 
-    const handleChange = (e: any) => {
-        const val = Number(e.target.value);
-        if (val >= 1) {
-            setCount(val);
-        }
-    };
+    const { addProduct } = useAddProtuctOrderItem();
+    const { removeProduct } = useRemoveProtuctOrderItem();
+    const { removeCartItem } = useRemoveFromCart();
+
+    const discountedPrice = discont ?  originalPrice - (originalPrice * (discont / 100)) : 0
 
     const addItem = () => {
-        setCount(count + 1)
-        setOrders(orders?.map((item: CartItem) => (item.id === id ? { ...item, count:  item.count + 1 } : item)))
+        addProduct({id})
     };
 
     const removeItem = () => {
-        count === 1 ? setCount(1) : setCount(count - 1)
-        setOrders(orders?.map((item: CartItem) => (item.id === id ? { ...item, count: item.count === 1 ? item.count = 1: item.count - 1 } : item)))
+        if (quantity === 1) return;
+        removeProduct({id})
     };
 
     const removeItemFromCart = () => {
-        setOrders(orders?.filter((item: CartItem) => item.id !== id))
+        removeCartItem({id})
     };
 
     return (
@@ -91,7 +86,7 @@ export const OrderItem: FC<OrderItemProps> = ({
             </div>
 
 
-            {availability && (
+            {availability ?  (
                 <>
                     <div className={styles.orderCard__prices}>
                         <h4 className={styles.orderCard__discounted_price}>{discountedPrice} ₽</h4>
@@ -106,7 +101,7 @@ export const OrderItem: FC<OrderItemProps> = ({
                             className={styles.orderCard__count_btn}
                             onClick={removeItem}
                         />
-                        <div className={styles.orderCard__count}>{count}</div>
+                        <div className={styles.orderCard__count}>{quantity}</div>
                         <IconButton 
                             src={'plus.svg'}
                             alt={'Добавить 1 товар'}
@@ -116,7 +111,7 @@ export const OrderItem: FC<OrderItemProps> = ({
                         />
                     </div>
                 </>
-            )}
+            ) : null}
 
             {availability ? (
                 <div className={styles.orderCard__price}>
@@ -125,7 +120,7 @@ export const OrderItem: FC<OrderItemProps> = ({
                         discountedPrice={discountedPrice || 0} 
                         originalPrice={originalPrice || 0} 
                     />
-                    <input className={styles.orderCard__checkbox} type='checkbox' checked={isChecked} onChange={() => setOrders(orders?.map((item: CartItem) => (item.id === id ? { ...item, isChecked:  !item.isChecked } : item)))} />
+                    <input className={styles.orderCard__checkbox} type='checkbox' checked={isChecked} onChange={() => setisChecked(!isChecked)} />
                 </div>
             ) : (
                 <div className={styles.orderCard__unvailable_price}>

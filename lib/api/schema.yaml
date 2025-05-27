@@ -1,0 +1,653 @@
+openapi: 3.0.0
+paths:
+  /auth/sign-in:
+    post:
+      operationId: AuthController_signIn
+      parameters: []
+      requestBody:
+        required: true
+        description: User's credentials
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SignInBodyDto'
+      responses:
+        '201':
+          description: User successfully signed in
+        '401':
+          description: Unauthorized access
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorException'
+      summary: >-
+        Log in user into the system, if successful, the tokens will be set in
+        the cookie
+      tags:
+        - Auth
+  /auth/sign-up:
+    post:
+      operationId: AuthController_signUp
+      parameters: []
+      requestBody:
+        required: true
+        description: User body for registration
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SignUpBodyDto'
+      responses:
+        '201':
+          description: User successfully registered
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SignUpBodyDto'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestException'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorException'
+      summary: User registration
+      tags:
+        - Auth
+  /auth/sign-out:
+    post:
+      operationId: AuthController_signOut
+      parameters:
+        - name: Authorization
+          required: true
+          in: header
+          schema:
+            type: string
+      responses:
+        '201':
+          description: User successfully logged out, the tokens will be cleared from cookie
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestException'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorException'
+      summary: Log out user
+      tags:
+        - Auth
+  /auth/refresh:
+    post:
+      operationId: AuthController_refresh
+      parameters: []
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Auth
+  /auth/session-info:
+    get:
+      operationId: AuthController_getSessionInfo
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getSessionInfoDto'
+        '201':
+          description: User info successfully required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getSessionInfoDto'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestException'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorException'
+      summary: Get user information
+      tags:
+        - Auth
+  /users/user-profile:
+    get:
+      operationId: UserController_getUserProfile
+      parameters: []
+      responses:
+        '200':
+          description: User profile info
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserInfoResponseDto'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestException'
+        '401':
+          description: Unauthorized user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorException'
+      summary: Get user profile info
+      tags:
+        - Users
+  /users/all-users:
+    get:
+      operationId: UserController_getListOfUsers
+      parameters:
+        - name: page
+          required: true
+          in: query
+          schema:
+            type: number
+        - name: id
+          required: true
+          in: query
+          schema:
+            type: string
+        - name: direction
+          required: true
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of users
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserInfoResponseDto'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestException'
+        '401':
+          description: Unauthorized user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorException'
+      summary: List of users for Admin
+      tags:
+        - Users
+  /users/user-role:
+    get:
+      operationId: UserController_getUserRole
+      parameters: []
+      responses:
+        '200':
+          description: User Role
+          content:
+            application/json:
+              schema:
+                type: string
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestException'
+        '401':
+          description: Unauthorized user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorException'
+      summary: Get user role
+      tags:
+        - Users
+  /users/forgot-password:
+    post:
+      operationId: UserController_forgotPassword
+      parameters: []
+      requestBody:
+        required: true
+        description: User's email to reset password
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ForgotPasswordRequestDto'
+      responses:
+        '200':
+          description: Sending email to user
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestException'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorException'
+      summary: Forgot password endpoint
+      tags:
+        - Users
+  /users/reset-password:
+    post:
+      operationId: UserController_resetPassword
+      parameters: []
+      requestBody:
+        required: true
+        description: User's info to reset password
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResetPasswordRequestDto'
+      responses:
+        '200':
+          description: Reset password
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestException'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorException'
+      summary: Reset password endpoint after forgot password
+      tags:
+        - Users
+  /users/change-password:
+    patch:
+      operationId: UserController_changePassword
+      parameters: []
+      requestBody:
+        required: true
+        description: User's info to change password
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChangePasswordRequestDto'
+      responses:
+        '200':
+          description: Change password
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestException'
+        '401':
+          description: Unauthorized user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorException'
+      summary: Change password endpoint
+      tags:
+        - Users
+  /users/edit-profile:
+    patch:
+      operationId: UserController_editProfile
+      parameters: []
+      requestBody:
+        required: true
+        description: User's info to edit profile
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/updateUserDto'
+      responses:
+        '200':
+          description: Edit profile
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/updateUserDto'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestException'
+        '401':
+          description: Unauthorized user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorException'
+      summary: Edit profile
+      tags:
+        - Users
+  /products:
+    get:
+      operationId: ProductController_getProducts
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Product
+  /products/{id}:
+    get:
+      operationId: ProductController_getProductById
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Product
+  /order-items/add-to-cart:
+    post:
+      operationId: OrderItemController_addToCart
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/orderItemBodyDto'
+      responses:
+        '201':
+          description: ''
+      tags:
+        - OrderItem
+  /order-items/add-one-product/{id}:
+    patch:
+      operationId: OrderItemController_addOrderItemProduct
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - OrderItem
+  /order-items/remove-one-product/{id}:
+    patch:
+      operationId: OrderItemController_removeOrderItemProduct
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - OrderItem
+  /order-items/remove-from-cart/{id}:
+    delete:
+      operationId: OrderItemController_removeFromCart
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - OrderItem
+  /orders/cart:
+    get:
+      operationId: OrderController_getCart
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Order
+  /orders/remove-from-order:
+    post:
+      operationId: OrderController_removeFromOrder
+      parameters: []
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Order
+  /orders/clear-order:
+    post:
+      operationId: OrderController_clearOrder
+      parameters: []
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Order
+  /orders/history:
+    get:
+      operationId: OrderController_getHistory
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Order
+info:
+  title: Music E-Commerce
+  description: ''
+  version: 1.0.0
+  contact: {}
+tags: []
+servers: []
+components:
+  schemas:
+    SignInBodyDto:
+      type: object
+      properties:
+        email:
+          type: string
+          example: example@gmail.com
+        password:
+          type: string
+          example: '1234556678'
+      required:
+        - email
+        - password
+    UnauthorizedException:
+      type: object
+      properties: {}
+    InternalServerErrorException:
+      type: object
+      properties: {}
+    SignUpBodyDto:
+      type: object
+      properties:
+        email:
+          type: string
+          example: example@gmail.com
+        password:
+          type: string
+          example: '1234556678'
+      required:
+        - email
+        - password
+    BadRequestException:
+      type: object
+      properties: {}
+    getSessionInfoDto:
+      type: object
+      properties:
+        id:
+          type: string
+        email:
+          type: string
+      required:
+        - id
+        - email
+    orderItemBodyDto:
+      type: object
+      properties:
+        quantity:
+          type: number
+        price:
+          type: number
+        productId:
+          type: string
+        orderId:
+          type: string
+        available:
+          type: number
+      required:
+        - quantity
+        - price
+        - productId
+        - orderId
+        - available
+    UserInfoResponseDto:
+      type: object
+      properties:
+        id:
+          type: string
+        userRole:
+          type: string
+          enum:
+            - ADMIN
+            - CUSTOMER
+        email:
+          type: string
+        name:
+          type: string
+        location:
+          type: string
+        shortBio:
+          type: string
+        orders:
+          type: array
+          items:
+            $ref: '#/components/schemas/orderItemBodyDto'
+      required:
+        - id
+        - userRole
+        - email
+        - name
+        - location
+        - shortBio
+        - orders
+    ForgotPasswordRequestDto:
+      type: object
+      properties:
+        email:
+          type: string
+      required:
+        - email
+    ResetPasswordRequestDto:
+      type: object
+      properties:
+        email:
+          type: string
+        newPassword:
+          type: string
+        repeatPassword:
+          type: string
+      required:
+        - email
+        - newPassword
+        - repeatPassword
+    ChangePasswordRequestDto:
+      type: object
+      properties:
+        id:
+          type: string
+        oldPassword:
+          type: string
+        repeatOldPassword:
+          type: string
+        newPassword:
+          type: string
+      required:
+        - id
+        - oldPassword
+        - repeatOldPassword
+        - newPassword
+    updateUserDto:
+      type: object
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+        image:
+          type: string
+          format: binary
+        updatedAt:
+          type: string
+          default: 2025-05-27T11:56:30.024Z
+      required:
+        - firstName
+        - lastName
+        - email
+        - image
+        - updatedAt

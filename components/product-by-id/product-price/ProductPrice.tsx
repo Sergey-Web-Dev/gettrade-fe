@@ -2,8 +2,7 @@ import { FC } from "react"
 import styles from './product-price.module.scss';
 import Image from "next/image";
 import ActionButton from "@/components/action-button/ActionButton";
-import {useStore} from "@/app/stores/useStore";
-import {mockData} from "@/lib/constants";
+import {useAddToCart} from "@/features/orderItem/model/use-add-to-cart";
 
 interface IProductPrice {
     originalPrice: number;
@@ -15,9 +14,7 @@ interface IProductPrice {
 }
 
 const ProductPrice: FC<IProductPrice> = ({ originalPrice, discountedPrice, discont, isFavorite, bonuses, availability }) => {
-    const setCartItems = useStore((state) => state.setCartItems);
-    const cartItems = useStore((state) => state.cartItems);
-
+    const { addItem} = useAddToCart()
     return (
         <div className={styles.productPrice}>
             <div className={styles.productPrice__priceAndFavorite}>
@@ -40,12 +37,13 @@ const ProductPrice: FC<IProductPrice> = ({ originalPrice, discountedPrice, disco
                     text="В КОРЗИНУ"
                     type="medium-blue"
                     onClick={() => {
-                        const newItem = {
-                            ...mockData,
-                            id: Math.floor(Math.random() * 1000000)
-                        };
-                        const safeCartItems = Array.isArray(cartItems) ? cartItems : [];
-                        setCartItems([...safeCartItems, newItem]);
+                        addItem({data: {
+                                quantity: 1,
+                                productId: '1f39019d-9fc4-436d-a2b6-094e75211bc9',
+                                orderId: '1f39019d-9fc4-436d-a2b6-094e75211bc9',
+                                available: 15,
+                                price: 1599,
+                            }})
                     }}
                 />
                 <ActionButton text="КУПИТЬ В 1 КЛИК" onClick={() => null} type="medium-grey" />

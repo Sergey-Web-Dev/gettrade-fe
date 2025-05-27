@@ -1,18 +1,12 @@
 'use client'
 
 import {FC, useRef, useState} from "react"
-import { Product } from "../types/products"
 import ProductItem from "../product-item/ProductItem"
 import styles from './bestsellers.module.scss';
 import ItemsSlider from "@/components/slider-for-items/ItemsSlider";
 import Image from "next/image";
-import ActionButton from "@/components/action-button/ActionButton";
 import cn from "classnames";
-
-interface IBestsellersProps {
-  bestsellers: Product[]
-  title: string;
-}
+import {useProducts} from "@/features/product/model/use-products";
 
 const CATS = [
     {id: 1, name: 'Наушники'},
@@ -22,11 +16,13 @@ const CATS = [
     {id: 5, name: 'Hifi компоненты'},
 ]
 
-const Bestsellers: FC<IBestsellersProps> = ({ bestsellers, title }) => {
+const Bestsellers = ({ title } : { title: string}) => {
     const [activeCategory, setActiveCategory] = useState(CATS[0]);
 
     const nextRef = useRef(null);
     const prevRef = useRef(null);
+
+    const {products} = useProducts();
 
     const handleSetActiveCategory = (cat: CategoryItem)=> {
         setActiveCategory(cat);
@@ -55,7 +51,7 @@ const Bestsellers: FC<IBestsellersProps> = ({ bestsellers, title }) => {
         </div>
       <div className={`h2-header ${styles.bestsellers__items}`}>
           <ItemsSlider
-              items={bestsellers.map((bestseller, index) => <ProductItem key={index} product={bestseller} />)}
+              items={products.map((product, index) => <ProductItem key={index} product={product} />)}
               width={''}
               height={'500px'}
               prevRef={prevRef}

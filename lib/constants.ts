@@ -90,7 +90,7 @@ export const achievements = [
 	},
 ];
 
-export const bestsellers: Product[] = [
+export const bestsellers = [
 	{
 		id: 0,
 		title: 'Гарнитура Cooler Master CH331 USB',

@@ -1,8 +1,8 @@
 import React, {FC} from "react"
 import styles from "./cart-total.module.scss";
 import {useRouter} from "next/navigation";
-import {CartItem} from "@/app/stores/useStore";
 import ActionButton from "@/components/action-button/ActionButton";
+import {OrderItem} from "@/lib/types/orderTypes/types";
 
 const totalFields = (length: number, totalPrice: string, totalDiscount: string, totalBonus: string)  => {
     return [
@@ -30,18 +30,18 @@ const totalFields = (length: number, totalPrice: string, totalDiscount: string, 
 }
 
 type TotalModuleProps = {
-    items: CartItem[];
+    items: OrderItem[];
 }
 
 export const CartTotal: FC<TotalModuleProps> = ({ items }) => {
 
     const router = useRouter();
 
-    const totalDiscountedPrice = items.filter(el => Number(el.availability) > 0).reduce((sum, item) => sum + item.discountedPrice * item.count, 0).toFixed(2);
-    const totalBonus = items.filter(el => Number(el.availability) > 0).reduce((sum, item) => sum + item.bonus * item.count, 0).toFixed(2);
-    const totalDiscount = items.filter(el => Number(el.availability) > 0).reduce((sum, item) => {
-        const discountAmount = item.originalPrice * (item.discount / 100) ;
-        return sum + discountAmount * item.count;
+    const totalDiscountedPrice = items.filter(el => Number(el.product.quantityAvailable) > 0).reduce((sum, {product, quantity}) => sum + (product.price - (product.price * (product.discount / 100))) * quantity, 0).toFixed(2);
+    const totalBonus = items.filter(el => Number(el.product.quantityAvailable) > 0).reduce((sum, {product, quantity}) => sum + product.bonuses * quantity, 0).toFixed(2);
+    const totalDiscount = items.filter(el => Number(el.product.quantityAvailable) > 0).reduce((sum, {product, quantity}) => {
+        const discountAmount = product.price * (product.discount / 100) ;
+        return sum + discountAmount * quantity;
     }, 0).toFixed(2);
 
     const renderedFieldsData = totalFields(items.length, totalDiscountedPrice, totalDiscount, totalBonus);

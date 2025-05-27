@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import Header from "@/components/header/Header";
 import Footer from "@/components/footer/Footer";
 import "./globals.css"
+import {AppProvider} from "@/app/app-provider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -20,14 +21,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+
     <html lang="en">
       <body className={`${inter.className}`}>
+      <AppProvider>
       <div style={{display: 'flex', flexDirection: 'column', minHeight: '100vh'}}>
-        <Header />
-        {children}
-        <Footer />
+              <Header />
+              {children}
+              <Footer />
       </div>
-
+      </AppProvider>
       </body>
     </html>
   );
