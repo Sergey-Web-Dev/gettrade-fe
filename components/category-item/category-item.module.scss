@@ -8,6 +8,10 @@
   flex-direction: column;
   justify-content: space-between;
 
+  &:hover {
+    background-color: transparent;
+  }
+
 
   &__wrapper {
     display: flex;

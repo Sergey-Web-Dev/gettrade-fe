@@ -10,7 +10,7 @@ const Section: FC<SectionProps> = ({ title, stylesName }) => {
 
     return (
             <div className={styles[stylesName]}>
-                <h2 className={`h2-header`}>{title}</h2>
+                <h2 style={{fontSize: '24px'}} className={`h2-header`}>{title}</h2>
             </div>
     )
 }
